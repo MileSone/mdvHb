@@ -1,0 +1,45 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
+<div class="oj-hybrid-applayout-page">
+    <div class="oj-applayout-fixed-top">
+        <!--
+         ** Oracle JET V4.1.0 hybrid mobile application header pattern.
+         ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+         ** more information on how to use this pattern.
+        -->
+        <header role="banner" class="oj-hybrid-applayout-header navHeaderS">
+            <div role="heading" class="oj-hybrid-applayout-bar-title">
+                <h1 class="oj-hybrid-applayout-header-title" data-bind="text: pageTitle"></h1>
+            </div>
+            <div class="oj-flex-bar-end">
+                <oj-input-date class="calenIcon"  value='{{dateValue}}'>
+                </oj-input-date>
+            </div>
+        </header>
+    </div>
+
+    <div class="subTitleOfHeader" data-bind="text: topTitle">
+        2018年红旗质量第二周报（每周二发放）
+    </div>
+    <!-- This is where your main page content will be loaded -->
+    <div class="oj-flex-item oj-sm-12">
+        <oj-conveyor-belt class="oj-sm-12">
+            <oj-navigation-list drill-mode="none" selection="{{selectedItem}}" on-oj-before-select="[[navListOptionChangeHandler]]" edge="top">
+                <ul data-bind="foreach: listItems">
+                    <li data-bind="attr: {id: id}, css: {'oj-disabled': disabled}">
+                        <a href="#" data-bind="text: label"></a>
+                    </li>
+                </ul>
+            </oj-navigation-list>
+        </oj-conveyor-belt>
+    </div>
+
+    <div class="justifyCenter" style="padding:0px; background-color: #E7EDF2;">
+        <div id="categoryDetailsArea">
+            <div data-bind="ojModule: modulePath">
+            </div>
+        </div>
+    </div>
+</div>

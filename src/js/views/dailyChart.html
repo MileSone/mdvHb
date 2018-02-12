@@ -1,0 +1,84 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
+<div class="oj-hybrid-applayout-page">
+    <div class="oj-applayout-fixed-top">
+        <!--
+         ** Oracle JET V4.1.0 hybrid mobile application header pattern.
+         ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+         ** more information on how to use this pattern.
+        -->
+        <header role="banner" class="oj-hybrid-applayout-header navHeaderS">
+            <div role="heading" class="oj-hybrid-applayout-bar-title">
+                <h1 class="oj-hybrid-applayout-header-title" data-bind="text: pageTitle"></h1>
+            </div>
+            <div class="oj-flex-bar-end">
+                <oj-input-date id="minmax" class="calenIcon"  min="[[oj.IntlConverterUtils.dateToLocalIso(new Date(2018, 02, 01))]]" max="2018-03-20"
+                               value='{{dateValue}}'>
+                </oj-input-date>
+            </div>
+        </header>
+    </div>
+    <!-- This is where your main page content will be loaded -->
+    <div class="subTitleOfHeader" data-bind="text: topTitle">
+    </div> 
+    
+    <div class="columeBarStyle" data-bind="text: dayTitleOne">
+    </div>
+
+    <div>
+        <oj-select-one id="basicSelect" value="{{selectValue}}" style="max-width:10em">
+            <oj-option value="红旗H7-FL">红旗H7-FL</oj-option>
+            <oj-option value="红旗H8-FL">红旗H8-FL</oj-option>
+        </oj-select-one>
+
+        <div data-bind="click: showDrilling">
+            <div class="oj-flex oj-flex-items-pad">
+                <div class="oj-sm-12 oj-md-12 oj-flex-item">
+                    整车审批（单位：级）
+                </div>
+            </div>
+            <div class="oj-flex oj-flex-items-pad">
+                <div class="oj-sm-4 oj-md-3 oj-lg-4 oj-flex-item">
+                    环比：+0.2
+                </div>
+                <div class="oj-sm-4 oj-md-6 oj-lg-4 oj-flex-item">
+                    目标值：3.0
+                </div>
+                <div class="oj-sm-4 oj-md-3 oj-lg-4 oj-flex-item">
+                    当日：3.5
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="popupWrapper">
+    <oj-popup class="demo-popup" id="popup1"
+              tail="none" position.my.horizontal="center" position.my.vertical="center"
+              position.at.horizontal="center" position.at.vertical="center"
+              position.of="window" position.offset.y="-10"
+              modality="modal" 
+              data-bind="event:{'ojAnimateStart': startAnimationListener}">
+        <div class="demo-popup-body">
+            <div class="demo-popup-header"><h5>The Gettysburg Address</h5></div>
+            <div class="demo-popup-content">
+                XXXXXXXXXXXXXXXXXXXXXX
+            </div>
+            <div class="demo-popup-footer">
+                <oj-button id="btnCancel" 
+                           data-bind="click: function()
+                                  {
+                                    var popup = document.querySelector('#popup1');
+                                    popup.close();
+                                  }">
+                    X
+                </oj-button>
+            </div>
+        </div>    
+    </oj-popup>
+</div>
