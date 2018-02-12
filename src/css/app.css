@@ -133,9 +133,9 @@ a .oj-clickable-icon, a.oj-clickable-icon, a.oj-clickable-icon-nocontext, a:visi
 
 .subTitleOfHeader{
     background-color: #d6d6d6;
-    font-size: 14px;
+    font-size: 15px;
     text-align: center;
-    padding: 67px 0px 10px 0px;
+    padding: 72px 0px 12px 0px;
     color: #bb8300;
 }
 
@@ -152,4 +152,8 @@ a .oj-clickable-icon, a.oj-clickable-icon, a.oj-clickable-icon-nocontext, a:visi
 
 .carST{
     padding: 7px 50px 5px 5px;
+}
+
+.oj-inputdatetime-calendar-icon, .oj-inputdatetime-time-only .oj-inputdatetime-time-icon {
+    display: block !important; 
 }

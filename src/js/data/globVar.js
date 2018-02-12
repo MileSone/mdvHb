@@ -6,4 +6,4 @@
 
 var weekTime;
 
-var monthTime
+var monthTime;
