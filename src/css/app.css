@@ -23,7 +23,7 @@ Login
 */
 
 .loginBG{
-    background: url("images/loginBG.png");
+    background: url("images/loginNew.png");
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
@@ -33,20 +33,74 @@ Login
     height: 100%;
 }
 
+.loginBG .oj-form-layout{
+    border:none !important;
+}
+
+.loginBG input{
+    color: white;
+    text-align: center;
+}
 
 
 .demo-logo-icon{
     max-width: 350px;
-    width: 80%;
-    padding-right: 25px;
+    width: 62%;
     text-align: center;
     margin: 0 auto;
-    margin-top: 20%;
+    margin-top: 40%;
     margin-bottom: 10%;
     content:url("images/logoIcon.png");
 }
 
+/*PC*/  
+@media screen and (min-width:960px){  
+    .demo-logo-icon{
+        max-width: 350px;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 15%;
+        margin-bottom: 10%;
+        content:url("images/logoIcon.png");
+    }
+}  
 
+
+
+.no-border{
+    border:none !important;
+}
+
+.leftIt{
+    text-align: left !important;
+}
+
+oj-input-text{
+    border-bottom:1px solid #f9f9f9;
+}
+
+oj-input-password{
+    border-bottom:1px solid #f9f9f9;
+}
+
+.oj-user-icon{
+    content:url("images/userIcon.png");
+    width: 45px;
+    display: inline-block;
+}
+
+.oj-pass-icon{
+    content:url("images/passIcon.png");
+    width: 45px;
+    display: inline-block;
+}
+
+#form-container{
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+}
 
 #form-container .oj-form-layout .oj-form .oj-flex{
     margin: 10px 0px 0px 0px;
@@ -58,7 +112,7 @@ Login
 
 
 #form-container .oj-form-layout .oj-form .oj-flex:last-child{
-    margin: 20px 0px 0px 0px;
+    margin: 40px 0px 0px 0px;
 }
 
 
@@ -68,10 +122,16 @@ Login
     line-height: 25px;
 }
 
-.oj-web-applayout-header {
-    z-index: 1;
-    background-color: #ee1a2d;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+#loginBtn{
+width: 283px;
+    background-color: white;;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+#loginBtn .oj-button-text{
+    color:rgb(53, 138, 245);
 }
 
 .oj-button.oj-default.oj-button-half-chrome .oj-button-icon, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-icon {

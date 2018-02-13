@@ -10,23 +10,23 @@
     <div class="oj-form-layout">
       <div class="oj-form oj-md-labels-inline">
         <div class="oj-flex no-border">
-          <div class="oj-flex-item" style="text-align:right;margin-right:10px;">
-            <oj-label for="control1">账号：</oj-label>
+          <div class="oj-flex-item" style="text-align:right;margin-right:20px;">
+              <div class="oj-user-icon"></div>
           </div>
-          <div class="oj-flex-item">
-            <oj-input-text id="control1" style="max-width:10em" value=""></oj-input-text>
+          <div class="oj-flex-item leftIt">
+            <oj-input-text id="control1" style="max-width:10em" value="{{username}}"></oj-input-text>
           </div>
         </div>
         <div class="oj-flex no-border">
-          <div class="oj-flex-item" style="text-align:right;margin-right:10px;">
-            <oj-label for="control3">密码：</oj-label>
+          <div class="oj-flex-item" style="text-align:right;margin-right:20px;">
+            <div class="oj-pass-icon"></div>
           </div>
-          <div class="oj-flex-item">
-            <oj-input-text id="control3" style="max-width:10em" value=""></oj-input-text>
+          <div class="oj-flex-item leftIt">
+            <oj-input-password id="control3" style="max-width:10em" value="{{password}}" ></oj-input-password>
           </div>
         </div>
         <div class="oj-flex no-border" style="text-align:center">
-          <oj-button id='button3' on-click='[[buttonClick]]'>
+          <oj-button id='loginBtn' on-click='[[buttonClick]]'>
             登陆
           </oj-button>
         </div>
