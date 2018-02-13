@@ -23,15 +23,22 @@
     <!-- This is where your main page content will be loaded -->
     <div class="subTitleOfHeader" data-bind="text: topTitle">
     </div> 
-    
+
     <div class="columeBarStyle" data-bind="text: dayTitleOne">
     </div>
 
     <div>
-        <oj-select-one id="basicSelect" value="{{selectValue}}" style="max-width:10em">
-            <oj-option value="红旗H7-FL">红旗H7-FL</oj-option>
-            <oj-option value="红旗H8-FL">红旗H8-FL</oj-option>
-        </oj-select-one>
+        <div class="oj-flex">
+            <div class="carST">
+                车型
+            </div>
+            <div class="">
+                <oj-select-one id="basicSelect" value="{{selectValue}}" style="max-width:10em"  on-value-changed="[[carDidChangeHandler]]">
+                    <oj-option value="红旗H7-FL">红旗H7-FL</oj-option>
+                    <oj-option value="红旗H8-FL">红旗H8-FL</oj-option>
+                </oj-select-one>
+            </div>
+        </div>
 
         <div data-bind="click: showDrilling">
             <div class="oj-flex oj-flex-items-pad">

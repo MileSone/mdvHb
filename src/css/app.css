@@ -217,3 +217,17 @@ a .oj-clickable-icon, a.oj-clickable-icon, a.oj-clickable-icon-nocontext, a:visi
 .oj-inputdatetime-calendar-icon, .oj-inputdatetime-time-only .oj-inputdatetime-time-icon {
     display: block !important; 
 }
+
+.oj-select-select {
+    width: 100%;
+}
+
+.oj-select .oj-select-arrow {
+    color: #358af5;
+    padding-top: 5px;
+     display: block !important; 
+}
+
+html:not([dir="rtl"]) .oj-select-select {
+    direction: ltr;
+}

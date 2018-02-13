@@ -30,12 +30,19 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
         self.topTitle = ko.pureComputed(function () {
             return  "根据更新时间：" + self.dateValue();
         }, this);
-        
-        
+
+
         self.dayTitleOne = ko.pureComputed(function () {
             return  "量产车型现生产质量指标（当日生产38辆" + self.selectValue() + ")";
         }, this);
-        
+
+        self.carDidChangeHandler = function (data) {
+            if (data.detail.previousValue !== data.detail.value) {
+
+                //reload all charts to value week data
+            }
+        };
+
         self.startAnimationListener = function (data, event)
         {
             var ui = event.detail;
