@@ -151,7 +151,7 @@ oj-input-password{
 /* day*/
 .dayCell{
     padding: 5px 0px 10px 0px;
-    border-bottom: 1px solid lightgray;
+    /*    border-bottom: 1px solid lightgray;*/
 }
 
 .dayCell .dayCell_title{
@@ -178,7 +178,7 @@ oj-input-password{
 
 .oj-popup {
     border-radius: 8px;
-    width: 60%;
+    width: 70%;
 }
 
 #popup1 .demo-popup-header{
