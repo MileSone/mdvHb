@@ -7,7 +7,7 @@
 /**
  * weekChartOne module
  */
-define(['ojs/ojcore', 'knockout','viewModels/weekDrilling', 'ojs/ojrouter'
+define(['ojs/ojcore', 'knockout', 'viewModels/weekDrilling', 'ojs/ojchart', 'ojs/ojrouter', 'jet-composites/my-pie/loader', 'jet-composites/my-bar/loader', 'jet-composites/my-line/loader', 'jet-composites/my-combo/loader'
 ], function (oj, ko, dril) {
     /**
      * The view model for the main content view template
@@ -22,15 +22,24 @@ define(['ojs/ojcore', 'knockout','viewModels/weekDrilling', 'ojs/ojrouter'
 
         self.carDidChangeHandler = function (data) {
             if (data.detail.previousValue !== data.detail.value) {
-                
+
                 //reload all charts to value week data
             }
         };
-        
-        self.drillingButtonAction = function(){
+
+        self.drillingButtonAction = function () {
             dril.callMeInOtherContrller("weeklyChart");
             oj.Router.rootInstance.go('weekDrilling');
         };
+
+        self.dataurlarr = ko.observableArray();
+        self.dataurlarr.push({ dataurl: 'js/data/week/pie1.json', chartname: '质量问题反馈情况' });
+        self.dataurlarr2 = ko.observableArray();
+        self.dataurlarr2.push({ dataurl: 'js/data/week/line2.json', chartname: '千车抱怨率' });
+        self.dataurlarr3 = ko.observableArray();
+        self.dataurlarr3.push({ dataurl: 'js/data/week/combo3.json', chartname: '项目改进状态' });
+
+        
     }
 
     return weekChartOneContentViewModel;
