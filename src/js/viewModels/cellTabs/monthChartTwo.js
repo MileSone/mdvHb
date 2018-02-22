@@ -27,7 +27,7 @@ define(['ojs/ojcore', 'knockout'
         //var hiddenCategories = [categories[0]];
         //self.hiddenCategoriesValue = ko.observableArray(hiddenCategories);
         // Chart Data
-        var timeSeries = [{name:'dd', items: [6.8, 6.2, 7, 5.8]},
+        var timeSeries = [{name:'实际值', items: [6.8, 6.2, 7, 5.8]},
          {name : "目标", items : [3.0, 3.0, 3.0, 3.0], type: "line"}];
         var timeGroups = ['第47周', '第48周', '第49周', '第50周'];
         self.timeSeriesValue = ko.observableArray(timeSeries);
