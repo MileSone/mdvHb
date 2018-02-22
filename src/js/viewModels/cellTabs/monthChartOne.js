@@ -7,8 +7,8 @@
 /**
  * monthChartOne module
  */
-define(['ojs/ojcore', 'knockout', 'ojs/ojrouter','jquery', 'ojs/ojknockout','ojs/ojselectcombobox','ojs/ojchart'
-         ], function (oj, ko) {
+define(['ojs/ojcore', 'knockout', 'ojs/ojrouter','jquery', 'ojs/ojknockout','ojs/ojselectcombobox','ojs/ojchart', 'ojs/ojtoolbar',
+         'jet-composites/demo-chart-orientation-control/loader' ], function (oj, ko) {
     /**
      * The view model for the main content view template
      */
@@ -30,15 +30,13 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter','jquery', 'ojs/ojknockout','ojs
                 //reload all charts to value week data
             }
         };
-       
+        self.orientationValue = ko.observable('vertical');
  /* chart data */
-        var lineSeries = [{name : "Series 1", items : [74, 62, 70, 76, 66]},
-                          {name : "Series 2", items : [50, 38, 46, 54, 42]},
-                          {name : "Series 3", items : [34, 22, 30, 32, 26]},
-                          {name : "Series 4", items : [18,  6, 14, 22, 10]},
-                          {name : "Series 5", items : [3,  2,  3,  3,  2]}];
+        var lineSeries = [{name : "千车抱怨率(AAK)", items : [136.92, 147.97, 123.31, 124.28, 137.85]},
+                          {name : "千车抱怨率(STD)", items : [53.63, 70.95, 54.84, 58.45, 64.79]}
+                          ];
     
-        var lineGroups = ["Jan", "Feb", "Mar", "Apr", "May"];
+        var lineGroups = ["第47周", "第48周", "第49周", "第50周", "第51周"];
    
         
        // this.lineSeriesValue = ko.observableArray(lineSeries);
