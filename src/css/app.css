@@ -18,6 +18,16 @@
     display: none;
 }
 
+.oj-hybrid-applayout-page {
+    min-height: 100vh;
+    padding-bottom: 68px;
+    background-color: #ffffff;
+}
+
+.divider{
+    height:50px;
+}
+
 /* 
 Login
 */
@@ -123,7 +133,7 @@ oj-input-password{
 }
 
 #loginBtn{
-width: 283px;
+    width: 283px;
     background-color: white;;
     border-radius: 10px;
     display: block;
@@ -136,6 +146,52 @@ width: 283px;
 
 .oj-button.oj-default.oj-button-half-chrome .oj-button-icon, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-icon {
     color: white;
+}
+
+/* day*/
+.dayCell{
+    padding: 5px 0px 10px 0px;
+    border-bottom: 1px solid lightgray;
+}
+
+.dayCell .dayCell_title{
+    color: #5a93d2;
+}
+
+.dayCell .dayCell_content{
+    font-size: 16px;
+    padding-top: 10px;
+    color:white;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.dayCell_content .coBlue{ background-color:rgb(35, 123, 177)}
+.dayCell_content .coGreen{  background-color:rgb(104, 193, 130)}
+.dayCell_content .coYellow{  background-color:rgb(250, 213, 92)}
+
+.dayCell_content .oj-flex-item{
+    padding: 4px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.oj-popup {
+    border-radius: 8px;
+    width: 60%;
+}
+
+#popup1 .demo-popup-header{
+    text-align: center;
+    border-bottom: 1px solid #83baef;
+}
+
+#popup1 .cellDiv{
+    padding: 7px;
+}
+
+#popup1 .demo-popup-footer{
+    text-align: right;
 }
 
 
@@ -225,7 +281,7 @@ a .oj-clickable-icon, a.oj-clickable-icon, a.oj-clickable-icon-nocontext, a:visi
 .oj-select .oj-select-arrow {
     color: #358af5;
     padding-top: 5px;
-     display: block !important; 
+    display: block !important; 
 }
 
 html:not([dir="rtl"]) .oj-select-select {
