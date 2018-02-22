@@ -7,17 +7,26 @@
 /**
  * weeklyChart module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojdatetimepicker',
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs/weekChartOne', 'ojs/ojdatetimepicker',
     'ojs/ojselectcombobox', 'ojs/ojtimezonedata', 'ojs/ojlabel', 'ojs/ojnavigationlist',
     'ojs/ojconveyorbelt',
     'ojs/ojradioset'],
-        function (oj, ko, $, app) {
+        function (oj, ko, $, app,weekChartOne) {
             /**
              * The view model for the main content view template
              */
             function weeklyChartContentViewModel() {
                 var self = this;
-
+                self.selectValue = ko.observable("H7");
+                carType = self.selectValue();
+                self.carDidChangeHandler = function (data) {
+                    if (data.detail.previousValue !== data.detail.value) {
+                        self.refreshAll();
+                        console.log(self.selectValue());
+                        //carType = self.selectValue();
+                        //reload all charts to value week data
+                    }
+                };
                 self.pageTitle = ko.observable("质量周报");
                 self.dateValue = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date(2018, 01, 28)));
                 weekTime = self.dateValue();
@@ -136,7 +145,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojdatetimepick
                             });
                 }
 
-
+                self.refreshAll=function(){
+                    weekChartOne.refreshReport('week1',self.selectValue(),self.dateValue())
+                }
 
 
 

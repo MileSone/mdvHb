@@ -19,9 +19,9 @@ and open the template in the editor.
             车型
         </div>
         <div class="">
-            <oj-select-one id="basicSelect" value="{{selectValue}}" style="max-width:10em" on-value-changed="[[carDidChangeHandler]]">
-                <oj-option value="红旗H7-FL">红旗H7-FL</oj-option>
-                <oj-option value="红旗H8-FL">红旗H8-FL</oj-option>
+            <oj-select-one id="basicSelect" value="{{$parent.selectValue}}" style="max-width:10em" on-value-changed="[[$parent.carDidChangeHandler]]">
+                <oj-option value="H7">红旗H7-FL</oj-option>
+                <oj-option value="H8">红旗H8-FL</oj-option>
             </oj-select-one>
         </div>
     </div>

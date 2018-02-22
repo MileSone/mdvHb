@@ -14,33 +14,31 @@ define(['ojs/ojcore', 'knockout', 'viewModels/weekDrilling', 'ojs/ojchart', 'ojs
      */
     function weekChartOneContentViewModel() {
         var self = this;
-
-        self.selectValue = ko.observable("红旗H7-FL");
-        self.titleOne = ko.pureComputed(function () {
-            return "新" + self.selectValue() + "自" + weekTime + "上市";
-        }, this);
-
-        self.carDidChangeHandler = function (data) {
-            if (data.detail.previousValue !== data.detail.value) {
-
-                //reload all charts to value week data
-            }
-        };
-
+        self.titleOne = ko.observable("新红旗H8-FL上市");
         self.drillingButtonAction = function () {
             dril.callMeInOtherContrller("weeklyChart");
             oj.Router.rootInstance.go('weekDrilling');
         };
 
-        self.dataurlarr = ko.observableArray();
-        self.dataurlarr.push({ dataurl: 'js/data/week/pie1.json', chartname: '质量问题反馈情况' });
-        self.dataurlarr2 = ko.observableArray();
-        self.dataurlarr2.push({ dataurl: 'js/data/week/line2.json', chartname: '千车抱怨率' });
-        self.dataurlarr3 = ko.observableArray();
-        self.dataurlarr3.push({ dataurl: 'js/data/week/combo3.json', chartname: '项目改进状态' });
 
+
+        self.dataurlarr = ko.observableArray();
+        self.dataurlarr2 = ko.observableArray();
+        self.dataurlarr3 = ko.observableArray();
         
+
+        self.refreshReport = function(weekStr,carType,dateStr){
+            var path=weekStr+"/"+carType+"/";
+            self.dataurlarr.removeAll()
+            self.dataurlarr2.removeAll()
+            self.dataurlarr3.removeAll()
+            self.dataurlarr.push({ dataurl: 'js/data/week/'+path+'pie1.json', chartname: '质量问题反馈情况' });
+            self.dataurlarr2.push({ dataurl: 'js/data/week/'+path+'line2.json', chartname: '千车抱怨率' });
+            self.dataurlarr3.push({ dataurl: 'js/data/week/'+path+'combo3.json', chartname: '项目改进状态' });
+            self.titleOne("新红旗"+carType+"-FL自"+dateStr+"上市")
+        }
+        self.refreshReport('week1','H7','');
     }
 
-    return weekChartOneContentViewModel;
+    return new weekChartOneContentViewModel;
 });
