@@ -146,8 +146,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
                 }
 
                 self.refreshAll=function(){
-                    weekChartOne.refreshReport('week1',self.selectValue(),self.dateValue())
-                    weekChartTwo.refreshReport('week1',self.selectValue(),self.dateValue())
+                    weekChartOne.refreshReport('week1',self.selectValue(),self.dateValue().toString());
+                    weekChartTwo.refreshReport('week1',self.selectValue(),self.dateValue().toString());
                 }
 
 
@@ -200,5 +200,5 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
              * each time the view is displayed.  Return an instance of the ViewModel if
              * only one instance of the ViewModel is needed.
              */
-            return weeklyChartContentViewModel;
+            return new weeklyChartContentViewModel;
         });

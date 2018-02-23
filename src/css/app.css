@@ -178,7 +178,7 @@ oj-input-password{
 
 .oj-popup {
     border-radius: 8px;
-    width: 60%;
+    width: 70%;
 }
 
 #popup1 .demo-popup-header{
@@ -286,4 +286,24 @@ a .oj-clickable-icon, a.oj-clickable-icon, a.oj-clickable-icon-nocontext, a:visi
 
 html:not([dir="rtl"]) .oj-select-select {
     direction: ltr;
+}
+
+
+.sub_title_sty {
+    border-top: 2px solid lightgray;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: #045fab;
+}
+
+demo-chart-three-d-effect-control , demo-chart-orientation-control{
+    padding-left: 10px;
+}
+
+demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-control oj-buttonset-one{
+    margin-bottom:15px;
+}
+
+#sun-chart-container{
+    padding:10px;
 }

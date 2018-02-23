@@ -4,7 +4,7 @@
     "groupTooltip": "周",
     "series": [
         {
-            "name": "千车抱怨率（AAK）",
+            "name": "(AAK)千车抱怨率",
             "items": [
                 9,
                 6,
@@ -34,7 +34,7 @@
             "type": "line"
         },
         {
-            "name": "千车抱怨率（STD）",
+            "name": "(STD)千车抱怨率",
             "items": [
                 6,
                 6,
