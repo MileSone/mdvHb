@@ -38,7 +38,6 @@ define(
             }
 
             if (self.properties.dataUrl != undefined) {
-                console.log('3333:' + self.properties.dataUrl);
                 self.dataUrl(self.properties.dataUrl);
 
                 $.getJSON(self.properties.dataUrl, function (data) {

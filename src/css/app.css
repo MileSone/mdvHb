@@ -28,6 +28,15 @@
     height:50px;
 }
 
+.globChartSty{
+    height:300px;
+    width:calc(100% - 30px);
+    white-space: normal;
+    margin-right: 30px;
+    -moz-calc(100% - 30px);
+    -webkit-calc(100% - 30px);
+}
+
 /* 
 Login
 */
@@ -306,4 +315,30 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 
 #sun-chart-container{
     padding:10px;
+}
+
+.sunDesWords{
+    color: slategray;   
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.oj-popup-week{
+    border-radius:4px;
+    min-height:60vh;
+    max-height:80vh;
+    width: 94%;
+}
+
+.demo-page1-hide , .demo-page2-hide{
+    display:none;
+}
+
+.demo-popup-header{
+    text-align:center;
+}
+
+#drillList2 .oj-button.oj-default.oj-button-half-chrome .oj-button-icon, #drillList2 .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-icon {
+    color: #0572ce !important;
 }

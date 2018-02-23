@@ -3,51 +3,57 @@
  The Universal Permissive License (UPL), Version 1.0
  */
 define(
-        ['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojchart','jet-composites/demo-chart-orientation-control/loader'], function (oj, ko, $) {
+        ['ojs/ojcore', 'knockout', 'jquery', 'viewModels/weekDrilling', 'ojs/ojchart', 'ojs/ojrouter', 'ojs/ojchart', 'jet-composites/demo-chart-three-d-effect-control/loader'
+        ], function (oj, ko, $, drill) {
     'use strict';
 
     function ExampleComponentModel(context) {
         var self = this;
-        self.composite = context.element;
-        self.orientationValue = ko.observable('vertical');
 
+        self.threeDValue = ko.observable('off');
+
+        self.composite = context.element;
         //Example observable
         self.chartName = ko.observable('');
         self.dataUrl = ko.observable('dataUrl');
-        self.seriesValue = ko.observableArray();
-        self.groupsValue = ko.observableArray();
+        self.pieSeriesValue = ko.observableArray();
+        self.threeDValue = ko.observable('off');
+        self.innerRadius = ko.observable(0);
+        self.centerLabel = ko.observable("");
 
-        self.stackValue = ko.observable('off');
-        self.orientationValue = ko.observable('vertical');
         self.serToolValue = ko.observable();
         self.valToolValue = ko.observable();
         self.groupToolValue = ko.observable();
 
+        self.listener = function () {
+            drill.callMeInOtherContrller("weeklyChart");
+            oj.Router.rootInstance.go('weekDrilling');
+        }
+
         context.props.then(function (propertyMap) {
             //Store a reference to the properties for any later use
+
             self.properties = propertyMap;
+
             if (self.properties.chartName != undefined) {
                 self.chartName(self.properties.chartName)
             }
-
-            if (self.properties.stackValue != undefined) {
-                self.stackValue(self.properties.stackValue)
+            if (self.properties.innerRadius != undefined) {
+                self.innerRadius(self.properties.innerRadius)
             }
-            if (self.properties.orientationValue != undefined) {
-                self.orientationValue(self.properties.orientationValue)
+            if (self.properties.centerLabel != undefined) {
+                self.centerLabel(self.properties.centerLabel)
             }
-
             if (self.properties.dataUrl != undefined) {
                 self.dataUrl(self.properties.dataUrl);
-
                 $.getJSON(self.properties.dataUrl, function (data) {
-                    self.seriesValue(data.series);
-                    self.groupsValue(data.groups);
                     self.serToolValue(data.seriesTooltip);
                     self.valToolValue(data.valueTooltip);
                     self.groupToolValue(data.groupTooltip);
+                    self.pieSeriesValue(data.dataArr)
                 });
             }
+
             //Parse your component properties here 
 
         });

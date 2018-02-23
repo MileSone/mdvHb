@@ -13,6 +13,7 @@ define(
         self.composite = context.element;
         //Example observable
         self.chartName = ko.observable('');
+        self.desDetail = ko.observable('');
 
         context.props.then(function (propertyMap) {
             //Store a reference to the properties for any later use
@@ -21,6 +22,7 @@ define(
 
             if (self.properties.chartName != undefined) {
                 self.chartName(self.properties.chartName)
+                self.desDetail(self.properties.desDetail)
             }
 
 
@@ -47,10 +49,7 @@ define(
 
         self.nodeValues = ko.observableArray([unitedStates]);
 
-        self.listener = function () {
-            drill.callMeInOtherContrller("weeklyChart");
-            oj.Router.rootInstance.go('weekDrilling');
-        }
+
 
 
         function createNode(label, population, meanIncome) {

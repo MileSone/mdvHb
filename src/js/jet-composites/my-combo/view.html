@@ -3,12 +3,13 @@
   The Universal Permissive License (UPL), Version 1.0
 -->
 <p class="sub_title_sty" data-bind="text:chartName"></p>
-<oj-chart class="chartStyle"
+<oj-chart class="chartStyle globChartSty"
           type="combo" 
           series="[[seriesValue]]"
           groups="[[groupsValue]]" 
           orientation="[[orientationValue]]"
           stack="[[stackValue]]"
+          legend.position ="bottom" 
           animation-on-display="auto"
           animation-on-data-change="auto"
           selection-mode="multiple"
@@ -18,7 +19,7 @@
           value-formats.series.tooltip-label="[[serToolValue]]"
           value-formats.value.tooltip-label="[[valToolValue]]"
           value-formats.group.tooltip-label="[[groupToolValue]]"
-          style="height:300px;width:100%; white-space: normal;">
+          style="">
 </oj-chart>
 <demo-chart-orientation-control id="orientationControl" type="bar" focus-management="none" orientation="{{orientationValue}}">
 </demo-chart-orientation-control>

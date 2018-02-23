@@ -21,14 +21,13 @@ define(
         context.props.then(function (propertyMap) {
             //Store a reference to the properties for any later use
             self.properties = propertyMap;
-            console.log(self.properties);
+
 
 
             if (self.properties.chartName != undefined) {
                 self.chartName(self.properties.chartName)
             }
             if (self.properties.dataUrl != undefined) {
-                console.log('3333:' + self.properties.dataUrl);
                 self.dataUrl(self.properties.dataUrl);
 
 

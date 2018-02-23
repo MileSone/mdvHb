@@ -22,7 +22,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
                 self.carDidChangeHandler = function (data) {
                     if (data.detail.previousValue !== data.detail.value) {
                         self.refreshAll();
-                        console.log(self.selectValue());
                         //carType = self.selectValue();
                         //reload all charts to value week data
                     }
@@ -42,13 +41,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
                 }, this);
 
                 self.dateDidChangeHandler = function (data) {
-                    console.log(self.dateValue);
                     if (data.detail.previousValue !== data.detail.value) {
                         weekTime = data.detail.value;
 
                         //reload all charts to value week data
                     }
-                    console.log(weekTime);
                 };
 
 
@@ -91,7 +88,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
                 this.selectedItem = ko.observable('week1');
 
                 self.navListOptionChangeHandler = function (event, data) {
-                    console.log(event.detail.key);
+//                    console.log(event.detail.key);
                     var newPage = "";
                     switch (event.detail.key) {
                         case "week1":
@@ -137,12 +134,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
                     }
 
                     // Implement if needed
-                    $.getJSON("js/data/week/" + jsonStr + ".json",
-                            function (data)
-                            {
-                                console.log(data);
-                                //   $('.changableSelect1').ojSelect("refresh");
-                            });
+//                    $.getJSON("js/data/week/" + jsonStr + ".json",
+//                            function (data)
+//                            {
+//                                console.log(data);
+//                                //   $('.changableSelect1').ojSelect("refresh");
+//                            });
                 }
 
                 self.refreshAll=function(){

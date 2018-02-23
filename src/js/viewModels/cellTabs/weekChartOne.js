@@ -7,7 +7,7 @@
 /**
  * weekChartOne module
  */
-define(['ojs/ojcore', 'knockout', 'viewModels/weekDrilling', 'ojs/ojchart', 'ojs/ojrouter', 'jet-composites/my-pie/loader', 'jet-composites/my-bar/loader', 'jet-composites/my-line/loader', 'jet-composites/my-combo/loader'
+define(['ojs/ojcore', 'knockout', 'viewModels/weekDrilling', 'ojs/ojchart', 'ojs/ojrouter', 'jet-composites/my-pie/loader', 'jet-composites/my-bar/loader', 'jet-composites/my-line/loader', 'jet-composites/my-combo/loader','jet-composites/my-drilling-pie/loader'
 ], function (oj, ko, dril) {
     /**
      * The view model for the main content view template
@@ -16,8 +16,8 @@ define(['ojs/ojcore', 'knockout', 'viewModels/weekDrilling', 'ojs/ojchart', 'ojs
         var self = this;
         self.titleOne = ko.observable("新红旗H8-FL上市");
         self.drillingButtonAction = function () {
-            dril.callMeInOtherContrller("weeklyChart");
-            oj.Router.rootInstance.go('weekDrilling');
+//            dril.callMeInOtherContrller("weeklyChart");
+//            oj.Router.rootInstance.go('weekDrilling');
         };
 
 

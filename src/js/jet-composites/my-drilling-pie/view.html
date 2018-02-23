@@ -8,7 +8,6 @@
               type="pie" 
               series="[[pieSeriesValue]]"
               animation-on-display="auto"
-              legend.position ="bottom"
               animation-on-data-change="auto"
               style-defaults.three-d-effect="[[threeDValue]]"
               hide-and-show-behavior="withRescale"
@@ -19,6 +18,9 @@
               value-formats.group.tooltip-label="[[groupToolValue]]"
               style-defaults.pie-inner-radius="[[innerRadius]]"
               pie-center.label="[[centerLabel]]"
+              drilling ="on"
+              on-oj-drill='[[listener]]'
+              legend.position ="bottom"
               style="">
     </oj-chart>
     <!-- 2D/3D toggle button -->

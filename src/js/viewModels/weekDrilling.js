@@ -16,9 +16,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter'
         var self = this;
         self.backView;
         self.callMeInOtherContrller = function (param) {
-            console.log("isDrilled");
             self.backView = param;
-            param.selectedItem('week2');
         }
 
         self.backButtonClick = function (event) {

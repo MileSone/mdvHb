@@ -32,14 +32,12 @@ define(
                 self.chartName(self.properties.chartName)
             }
             if (self.properties.innerRadius != undefined) {
-                console.log(self.properties.innerRadius)
                 self.innerRadius(self.properties.innerRadius)
             }
             if (self.properties.centerLabel != undefined) {
                 self.centerLabel(self.properties.centerLabel)
             }
             if (self.properties.dataUrl != undefined) {
-                console.log('3333:' + self.properties.dataUrl);
                 self.dataUrl(self.properties.dataUrl);
                 $.getJSON(self.properties.dataUrl, function (data) {
                     self.serToolValue(data.seriesTooltip);
