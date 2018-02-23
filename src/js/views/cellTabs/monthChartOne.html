@@ -15,7 +15,44 @@ and open the template in the editor.
             </oj-select-one>
         </div>
     </div>
-    <!-- ko foreach: dataurlarr2 -->
-    <my-line data-url="{{dataurl}}" chart-name="{{chartname}}" />
-    <!-- /ko -->
+    <div id="sampleDemo" style="" class="demo-padding demo-container">
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+            <div id="panelPage">
+
+
+                <div class="oj-panel oj-sm-margin-2x">
+                    <div class="month-count-0">累计到店数量(STD)</div>
+                    <div class="month-count-1">962</div>
+                    <div class="month-count-2">台</div>
+                </div>
+
+                <div class="oj-panel oj-sm-margin-2x ">
+                    <div class="month-count-0">终端销售(AAK)</div>
+                    <div class="month-count-1">539</div>
+                    <div class="month-count-2">台</div>
+                </div>
+                <div class="oj-panel oj-sm-margin-2x ">
+                    <div class="month-count-0">累计反馈问题</div>
+                    <div class="month-count-1">142</div>
+                    <div class="month-count-2">频次</div>
+                </div>
+                <div class="oj-panel oj-sm-margin-2x ">
+                    <div class="month-count-0">千台车故障率</div>
+                    <div class="month-count-1">134.72‰</div>
+                    <div class="month-count-2"></div>
+                </div>
+                <div class="oj-panel oj-sm-margin-2x">
+                    <div class="month-count-0">终端用户反馈故障</div>
+                    <div class="month-count-1">27</div>
+                    <div class="month-count-2">频次</div>
+                </div>
+                <div class="oj-panel oj-sm-margin-2x ">
+                    <div class="month-count-0">千车抱怨率</div>
+                    <!-- ko foreach: dataurlarr2 -->
+                    <my-line data-url="{{dataurl}}" chart-name="{{chartname}}" />
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

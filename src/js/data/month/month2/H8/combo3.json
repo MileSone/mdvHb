@@ -2,8 +2,7 @@
     "seriesTooltip": "",
     "valueTooltip": "",
     "groupTooltip": "",
-    "series": [{"name" : "完成", "items" : [74, 42, 70, 46], "type": "bar"},
-    {"name" : "未完成", "items" : [18,  6, 14, 22], "type": "bar"},
-    {"name" : "完成率", "items" : [50, 58, 46, 54], "type": "line"}],
+    "series": [{"name" : "实际值", "items" : [74, 42, 70, 146], "type": "bar"},
+    {"name" : "目标3.0级", "items" : [50, 58, 46, 54], "type": "line"}],
     "groups": ["第47周", "第48周", "第49周", "第50周"]
 }
