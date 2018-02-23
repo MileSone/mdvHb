@@ -7,11 +7,11 @@
 /**
  * weeklyChart module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs/weekChartOne', 'ojs/ojdatetimepicker',
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs/weekChartOne','viewModels/cellTabs/weekChartTwo', 'ojs/ojdatetimepicker',
     'ojs/ojselectcombobox', 'ojs/ojtimezonedata', 'ojs/ojlabel', 'ojs/ojnavigationlist',
     'ojs/ojconveyorbelt',
     'ojs/ojradioset'],
-        function (oj, ko, $, app,weekChartOne) {
+        function (oj, ko, $, app,weekChartOne,weekChartTwo) {
             /**
              * The view model for the main content view template
              */
@@ -147,6 +147,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
 
                 self.refreshAll=function(){
                     weekChartOne.refreshReport('week1',self.selectValue(),self.dateValue())
+                    weekChartTwo.refreshReport('week1',self.selectValue(),self.dateValue())
                 }
 
 

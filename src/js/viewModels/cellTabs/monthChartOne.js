@@ -7,25 +7,28 @@
 /**
  * monthChartOne module
  */
-define(['ojs/ojcore', 'knockout', 'ojs/ojrouter'
+define(['ojs/ojcore', 'knockout', 'ojs/ojrouter','jet-composites/my-line/loader'
 ], function (oj, ko) {
     /**
      * The view model for the main content view template
      */
     function monthChartOneContentViewModel() {
         var self = this;
-        self.firstName = ko.observable("Mon1");
-        self.lastName = ko.observable("");
-        self.fullName = ko.pureComputed(function () {
-            return this.firstName() + " " + this.lastName();
-        }, this);
 
+        //        self.drillingAction = function () {
+        //            dril.callMeInOtherContrller("monthChartOne");
+        //            oj.Router.rootInstance.go('weekDrilling');
+        //        };
+        self.dataurlarr2 = ko.observableArray();
+        self.refreshReport = function (weekStr, carType, dateStr) {
+            var path = weekStr + "/" + carType + "/";
+            self.dataurlarr2.removeAll()
+            self.dataurlarr2.push({ dataurl: 'js/data/month/' + path + 'line2.json', chartname: '千车抱怨率' });
 
-//        self.drillingAction = function () {
-//            dril.callMeInOtherContrller("monthChartOne");
-//            oj.Router.rootInstance.go('weekDrilling');
-//        };
+            //self.titleOne("新红旗" + carType + "-FL自" + dateStr + "上市")
+        }
+        self.refreshReport('month1', 'H7', '');
     }
 
-    return monthChartOneContentViewModel;
+    return new monthChartOneContentViewModel;
 });

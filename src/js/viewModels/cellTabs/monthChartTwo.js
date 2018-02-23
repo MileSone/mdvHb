@@ -7,19 +7,23 @@
 /**
  * monthChartTwo module
  */
-define(['ojs/ojcore', 'knockout'
+define(['ojs/ojcore', 'knockout', 'jet-composites/my-combo/loader'
 ], function (oj, ko) {
     /**
      * The view model for the main content view template
      */
     function monthChartTwoContentViewModel() {
         var self = this;
-        self.firstName = ko.observable("Mon2");
-        self.lastName = ko.observable("Earth");
-        self.fullName = ko.pureComputed(function () {
-            return this.firstName() + " " + this.lastName();
-        }, this);
+
+        self.dataurlarr3 = ko.observableArray();
+        self.refreshReport = function (weekStr, carType, dateStr) {
+            var path = weekStr + "/" + carType + "/";
+            self.dataurlarr3.removeAll()
+            self.dataurlarr3.push({ dataurl: 'js/data/month/' + path + 'combo3.json', chartname: '整车Audit评审等级' });
+            //self.titleOne("新红旗" + carType + "-FL自" + dateStr + "上市")
+        }
+        self.refreshReport('month1', 'H7', '');
     }
-    
-    return monthChartTwoContentViewModel;
+
+    return new monthChartTwoContentViewModel;
 });

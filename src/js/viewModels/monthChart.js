@@ -7,16 +7,27 @@
 /**
  * dailyChart module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojdatetimepicker',
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs/monthChartOne','viewModels/cellTabs/monthChartTwo', 'ojs/ojdatetimepicker',
     'ojs/ojselectcombobox', 'ojs/ojtimezonedata', 'ojs/ojlabel', 'ojs/ojnavigationlist',
     'ojs/ojconveyorbelt',
     'ojs/ojradioset'],
-        function (oj, ko, $, app) {
+        function (oj, ko, $, app,monthChartOne,monthChartTwo) {
             /**
              * The view model for the main content view template
              */
             function monthChartContentViewModel() {
                 var self = this;
+
+                self.selectValue = ko.observable("H7");
+                carType = self.selectValue();
+                self.carDidChangeHandler = function (data) {
+                    if (data.detail.previousValue !== data.detail.value) {
+                        self.refreshAll();
+                        console.log(self.selectValue());
+                        //carType = self.selectValue();
+                        //reload all charts to value week data
+                    }
+                };
 
 
                 self.pageTitle = ko.observable("质量月报");
@@ -90,6 +101,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojdatetimepick
                     self.currentModule(newPage);
                     return true;
                 };
+
+                self.refreshAll=function(){
+                    monthChartOne.refreshReport('month1',self.selectValue(),self.dateValue())
+                    monthChartTwo.refreshReport('month1',self.selectValue(),self.dateValue())
+                }
 
                 self.modulePath = ko.pureComputed(
                         function ()

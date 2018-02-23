@@ -4,9 +4,19 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<h1>monthChartTwo</h1>
-
-<p>First name: <input data-bind="value: firstName" /></p>
-<p>Last name: <input data-bind="value: lastName" /></p>
-
-<h2>Hello, <span data-bind="text: fullName"> </span>!</h2>
+<div class="whiteBG">
+    <div class="oj-flex">
+        <div class="carST">
+            车型
+        </div>
+        <div class="">
+            <oj-select-one id="basicSelect" value="{{$parent.selectValue}}" style="max-width:10em" on-value-changed="[[$parent.carDidChangeHandler]]">
+                <oj-option value="H7">红旗H7-FL</oj-option>
+                <oj-option value="H8">红旗H8-FL</oj-option>
+            </oj-select-one>
+        </div>
+    </div>
+    <!-- ko foreach: dataurlarr3 -->
+    <my-combo data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
+    <!-- /ko -->
+</div>

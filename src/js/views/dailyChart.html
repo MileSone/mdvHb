@@ -1,20 +1,33 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
 <div class="oj-hybrid-applayout-page">
     <div class="oj-applayout-fixed-top">
+        <!--
+         ** Oracle JET V4.1.0 hybrid mobile application header pattern.
+         ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+         ** more information on how to use this pattern.
+        -->
         <header role="banner" class="oj-hybrid-applayout-header navHeaderS">
             <div role="heading" class="oj-hybrid-applayout-bar-title oj-flex-bar-middle">
                 <h1 class="oj-hybrid-applayout-header-title" data-bind="text: pageTitle"></h1>
             </div>
             <div class="oj-flex-bar-end">
-                <oj-input-date id="minmax" class="calenIcon"  min="[[oj.IntlConverterUtils.dateToLocalIso(new Date(2018, 02, 01))]]" max="2018-03-20" value='{{dateValue}}'>
+                <oj-input-date id="minmax" class="calenIcon"  min="[[oj.IntlConverterUtils.dateToLocalIso(new Date(2018, 02, 01))]]" max="2018-03-20"
+                               value='{{dateValue}}'>
                 </oj-input-date>
             </div>
         </header>
     </div>
+    <!-- This is where your main page content will be loaded -->
     <div class="subTitleOfHeader" data-bind="text: topTitle">
-
     </div> 
+
     <div class="oj-flex">
-        <div class="carST">车型</div>
+        <div class="carST">
+            车型
+        </div>
         <div class="">
             <oj-select-one id="basicSelect" value="{{selectValue}}" style="max-width:10em"  on-value-changed="[[carDidChangeHandler]]">
                 <oj-option value="红旗H7-FL">红旗H7-FL</oj-option>
@@ -22,15 +35,17 @@
             </oj-select-one>
         </div>
     </div>
+
     <div class="columeBarStyle" data-bind="text: dayTitleOne">
-    </div>   
-
-
+    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
     <div>
-        <oj-list-view id="daylistview" aria-label="list with context menu"  data="[[dataTopProvider]]" item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('daytop_template', true)]]" selection-mode="single"> </oj-list-view>
+        <oj-list-view id="daylistview" aria-label="list with context menu"  
+                      data="[[dataTopProvider]]" item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('daytop_template', true)]]" selection-mode="single">
+        </oj-list-view>
+
         <script type="text/html" id="daytop_template">
-            <li data-bind="attr: {id: $data['name']},click: $parent.showDrilling($data)">
-                <div class="dayCell" >
+            <li data-bind="attr: {id: $data['name']}">
+                <div class="dayCell" data-bind="click: $parent.showDrilling()">
                     <div class="oj-flex oj-flex-items-pad dayCell_title">
                         <div class="oj-sm-12 oj-md-12 oj-flex-item" data-bind="text: name">
                             整车审批（单位：级）
@@ -51,16 +66,20 @@
             </li>
             </script>
         </div>
+
         </br>
+
         <div class="columeBarStyle" data-bind="text: dayTitleTwo">
         </div>
+
         <div>
             <oj-list-view id="daylistview2" aria-label="list with context menu"  
                           data="[[dataBottomProvider]]" item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('daybot_template', true)]]" selection-mode="single">
             </oj-list-view>
+
             <script type="text/html" id="daybot_template">
-                <li data-bind="attr: {id: $data['name']},click: $parent.showDrilling($data)">
-                    <div class="dayCell"  >
+                <li data-bind="attr: {id: $data['name']}">
+                    <div class="dayCell"  data-bind="event:{'click': $parent.showDrilling()}">
                         <div class="oj-flex oj-flex-items-pad dayCell_title">
                             <div class="oj-sm-12 oj-md-12 oj-flex-item" data-bind="text: name">
                                 整车审批（单位：级）
@@ -79,49 +98,53 @@
                         </div>
                     </div>
                 </li>
-                </script>
-            </div>
-            <div class="divider"></div>
-            <div id="popupWrapper">
-                <oj-popup class="demo-popup" id="popup1" 
-                          tail="none" position.my.horizontal="center" position.my.vertical="center"
-                          position.at.horizontal="center" position.at.vertical="center"
-                          position.of="window" position.offset.y="-10"
-                          modality="modal" 
-                          data-bind="event:{'ojAnimateStart': startAnimationListener}">
-                    <div class="demo-popup-body">
-                        <div class="demo-popup-header"><h5>整车审评(单位：级)</h5></div>
-                        <div class="demo-popup-content">
-                            <oj-form-layout id="ofl1" label-edge="{{labelEdge}}" max-columns="{{columns}}">
-                                <div class="cellDiv">
-                                    <span>车型：</span>
-                                    <span data-bind="text: selectValue"></span>
-                                </div>
-                                <div class="cellDiv">
-                                    <span data-bind="text: pop_t1">3.0</span>
-                                </div>
-                                <div class="cellDiv">
-                                    <span data-bind="text: pop_t2">3.8级</span>
-                                </div>
-                                <div class="cellDiv">
-                                    <span data-bind="text: pop_t3">备注：</span>
-                                </div>
-                                <div>
-                                    <span data-bind="text: popDes">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</span>
-                                </div>
-                            </oj-form-layout>
+            </script>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+
+    <div id="popupWrapper">
+        <oj-popup class="demo-popup" id="popup1" 
+                  tail="none" position.my.horizontal="center" position.my.vertical="center"
+                  position.at.horizontal="center" position.at.vertical="center"
+                  position.of="window" position.offset.y="-10"
+                  modality="modal" 
+                  data-bind="event:{'ojAnimateStart': startAnimationListener}">
+            <div class="demo-popup-body">
+                <div class="demo-popup-header"><h5>整车审评(单位：级)</h5></div>
+                <div class="demo-popup-content">
+                    <oj-form-layout id="ofl1" label-edge="{{labelEdge}}" max-columns="{{columns}}">
+                        <div class="cellDiv">
+                            <span>车型：</span>
+                            <span data-bind="text: selectValue"></span>
                         </div>
-                        <div class="demo-popup-footer">
-                            <oj-button id="btnCancel" 
-                                       data-bind="click: function()
+                        <div class="cellDiv">
+                            <span data-bind="text: pop_t1">3.0</span>
+                        </div>
+                        <div class="cellDiv">
+                            <span data-bind="text: pop_t2">3.8级</span>
+                        </div>
+                        <div class="cellDiv">
+                            <span data-bind="text: pop_t3">备注：</span>
+                        </div>
+                        <div>
+                            <span data-bind="text: popDes">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</span>
+                        </div>
+
+                    </oj-form-layout>
+                </div>
+                <div class="demo-popup-footer">
+                    <oj-button id="btnCancel" 
+                               data-bind="click: function()
                                   {
                                     var popup = document.querySelector('#popup1');
                                     popup.close();
                                   }">
-                                X
-                            </oj-button>
-                        </div>
-                    </div>    
-                </oj-popup>
-            </div>
-        </div>
+                        X
+                    </oj-button>
+                </div>
+            </div>    
+        </oj-popup>
+    </div>

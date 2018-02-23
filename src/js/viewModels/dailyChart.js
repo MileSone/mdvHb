@@ -35,7 +35,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
         self.pop_t3 = ko.observable("");
 
         self.initVC = function (jsonStr) {
-            boCheck = 1;
             $.getJSON("js/data/day/" + jsonStr + ".json",
                     function (data)
                     {
@@ -49,18 +48,14 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
                                 self.dataBottomJson(data.H8.col2);
                                 break
                         }
-                        setTimeout(function () {
-                            boCheck = 0;
-                            console.log(boCheck);
-                        }, 1000);
-
+                        boCheck = 0;
                     });
         }
 
         self.initVC("dayOne");
 
         self.showDrilling = function (data) {
-            console.log(data);
+            console.log(data,event);
             if (boCheck === 0) {
                 self.pop_t1(data.t1);
                 self.pop_t2(data.t2);
@@ -99,6 +94,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
         self.carDidChangeHandler = function (data) {
             if (data.detail.previousValue !== data.detail.value) {
                 self.initVC("dayOne");
+
                 //reload all charts to value week data
             }
         };
