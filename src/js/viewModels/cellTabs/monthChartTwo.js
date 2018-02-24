@@ -7,7 +7,7 @@
 /**
  * monthChartTwo module
  */
-define(['ojs/ojcore', 'knockout', 'jet-composites/my-combo/loader'
+define(['ojs/ojcore', 'knockout', 'jet-composites/my-combo/loader', 'jet-composites/my-lineArea/loader'
 ], function (oj, ko) {
     /**
      * The view model for the main content view template

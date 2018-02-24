@@ -64,7 +64,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                         addChildNodes(reg_MW, [div_EN, div_WN]);
                         self.nodeValues([dataArray]);
                         self.jsonData = data;
-                        console.log(data);
                     });
         }
 
@@ -106,11 +105,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                 var cellArray = self.jsonData.cells;
                 for (var i = 0; i < cellArray.length; i++) {
                     if (cellArray[i].name === event.detail.id) {
-                        console.log(cellArray[i].list);
-
                         if (cellArray[i].list.length !== 0) {
                             self.desList(cellArray[i].list);
-                            console.log("in here");
                         }
                     }
                 }
@@ -176,7 +172,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
         self.gotoContent = function (event) {
             if (event.detail.value !== null)
             {
-                console.log(event);
                 var row = self.desList()[event.detail.value];
                 self.po1(row.content.id);
                 self.po2(row.content.car);
@@ -188,6 +183,13 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                 self.slide();
             }
         };
+
+        self.backToWeekPage = function ()
+        {
+            self.gotoList();
+            var popup = document.querySelector('#popupWeek');
+            popup.close();
+        }
 
 
         this.slide = function () {

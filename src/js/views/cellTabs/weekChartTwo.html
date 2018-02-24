@@ -22,7 +22,7 @@ and open the template in the editor.
                 <div class="oj-panel oj-sm-margin-2x">
                     <div id='sunburst-container' style="padding: 10px;text-align:center;">
                         <oj-sunburst animation-on-display="auto" node-defaults.label-display="rotated" nodes="[[nodeValues]]" selection-mode="single"
-                            drilling="on" on-oj-drill='[[listener]]' style="width:85%;margin: 0 auto;">
+                                     drilling="on" on-oj-drill='[[listener]]' style="width:85%;margin: 0 auto;">
                         </oj-sunburst>
 
                         <div class="sunDesWords" data-bind="text: sunDes"></div>
@@ -55,11 +55,7 @@ and open the template in the editor.
                 <div class="demo-popup-header">
                     <h5>质量问题整改表</h5>
                     <oj-button style="position: absolute;right: 10px;top: 7px;font-size: 20px;" id="btnCancel" 
-                               data-bind="click: function()
-                                  {
-                                    var popup = document.querySelector('#popupWeek');
-                                    popup.close();
-                                  }">
+                               data-bind="click: backToWeekPage">
                         X
                     </oj-button>
                 </div>
