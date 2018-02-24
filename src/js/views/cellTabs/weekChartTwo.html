@@ -80,25 +80,29 @@ and open the template in the editor.
                     <script type="text/html" id="note_template">
                         <li data-bind="attr: {id: 'item'+id}">
                             <div class="">
-                                <div>2018年1月12日 15:23</div>
-                                <div>通知级</div>
-                                <div>divider</div>
-                                <div>
-                                    <span>责任单位：</span><span>质保部</span>
+                                <div class="y1" data-bind="text: k1">2018年1月12日 15:23</div>
+                                <div class="y2" data-bind="text: k2">通知级</div>
+                                <div class="popDivider"></div>
+                                <div class="y3">
+                                    <div>
+                                        <span>责任单位：</span><span data-bind="text: k3">质保部</span>
+                                    </div>
+                                    <div>
+                                        <span>时间要求：</span><span data-bind="text: k4">2天内提供质量整改方案</span>
+                                    </div>
+                                    <div>
+                                        <span>汽车型号：</span><span data-bind="text: k5">红旗H7-FL</span>
+                                    </div>
+                                    <div>
+                                        <span>问题描述：</span><span data-bind="text: k6">车辆启动后显示“废气监测系统故障”</span>
+                                    </div>
+                                    <div>
+                                        <span>完成状态：</span><span class="y5" data-bind="text: k7">已完成</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <span>时间要求：</span><span>2天内提供质量整改方案</span>
-                                </div>
-                                <div>
-                                    <span>汽车型号：</span><span>红旗H7-FL</span>
-                                </div>
-                                <div>
-                                    <span>问题描述：</span><span>车辆启动后显示“废气监测系统故障”</span>
-                                </div>
-                                <div>
-                                    <span>完成状态：</span><span>已完成</span>
-                                </div>
-                                <div>divider</div>
+                                <div class="oj-flex-bar-end oj-sm-align-items-center y4">
+                                    <div role="presentation" class="oj-flex-item oj-fwk-icon oj-listview-drill-icon"></div>
+                                </div>   
                                 <!--                                <div class="oj-flex-bar-middle oj-flex-bar">
                                                                     <div class="oj-flex-bar-middle" style="font-weight: bold" data-bind="text: name"></div>
                                                                     <div class="oj-flex-bar-end"><span class="oj-flex-item" data-bind="text: date"></span></div>

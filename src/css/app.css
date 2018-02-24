@@ -327,7 +327,7 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 .oj-popup-week{
     border-radius:4px;
     min-height:60vh;
-    max-height:80vh;
+    max-height:84vh;
     width: 94%;
 }
 
@@ -341,4 +341,63 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 
 #drillList2 .oj-button.oj-default.oj-button-half-chrome .oj-button-icon, #drillList2 .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-icon {
     color: #0572ce !important;
+}
+
+#drillList1 .popDivider{
+    border: 1px solid #eaeaea;
+}
+
+#drillList1 {
+    font-size: 16px;
+}
+
+#drillList1 .y1{
+    font-size: 14px;
+}
+
+#drillList1 .y2{
+    color: #f9a93e;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#drillList1 .y3{
+    font-weight: 300;
+    font-size: 16px;
+    padding-bottom: 8px;
+    width: 98%;
+}
+
+#drillList1 .oj-listview {
+    /*    border-width: 3px 0;*/
+}
+
+#drillList1 ul li{
+    position:relative;
+    background-size: 100% 5px;
+    background-position: 0rem 0; 
+}
+
+#drillList1 .y4{
+    position: absolute;
+    right: -4px;
+    top: 50%;
+}
+
+#drillList1 .y3 .y5{
+    color: darkgreen;
+    font-weight: 600;
+}
+
+
+
+#drillList1 .oj-focus{
+    background:#d4d4d4;
+    border-color: #d4d4d4;
+    color: white;
+}
+
+
+#drillList1 .oj-listview-item {
+    border-top: none;
 }

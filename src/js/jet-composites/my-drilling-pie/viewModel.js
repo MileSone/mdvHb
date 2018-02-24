@@ -26,8 +26,8 @@ define(
         self.groupToolValue = ko.observable();
 
         self.listener = function () {
-            drill.callMeInOtherContrller("weeklyChart");
-            oj.Router.rootInstance.go('weekDrilling');
+//            drill.callMeInOtherContrller("weeklyChart");
+//            oj.Router.rootInstance.go('weekDrilling');
         }
 
         context.props.then(function (propertyMap) {

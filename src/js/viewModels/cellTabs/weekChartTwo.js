@@ -74,14 +74,24 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                 legend = event.detail.id + "份 点击查看详细表单信息";
                 self.sunDes(legend);
                 var cellArray = self.jsonData.cells;
-
+                var checkPot = true;
                 for (var i = 0; i < cellArray.length; i++) {
                     if (cellArray[i].name === event.detail.id) {
-                        console.log(cellArray[i].list)
+                        console.log(cellArray[i].list);
+                        self.desList.removeAll();
+                        if (cellArray[i].list.length !== 0) {
+                            self.desList(cellArray[i].list);
+                            console.log("in here");
+                        }
 
-                        self.desList(cellArray[i].list);
+                        checkPot = false;
                     }
                 }
+//                if (checkPot === true) {
+//                  
+//                }
+
+//                $( "#weeklistview" ).ojListView( "refresh" );
                 var popup = document.querySelector('#popupWeek');
                 popup.open();
             } else if (checkString == "总") {
@@ -136,16 +146,21 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
             }
         }
 
-        var data = [{id: 0, name: 'Potential cat names', date: 'Apr 30', content: 'Mew, Furball, Puss'},
-            {id: 1, name: 'Todo list for work', date: 'Apr 29', content: 'Add one more'},
-            {id: 2, name: 'Chicken recipes', date: 'Apr 15', content: 'Fried, Shake & Bake, Sautee'},
-            {id: 3, name: 'Running routes', date: 'Apr 3', content: 'Bedroom to kitchen and back'},
-            {id: 4, name: 'Groceries', date: 'Apr 1', content: 'Milk, bread, meat, veggie, can, etc.'},
-            {id: 5, name: 'Party guest list', date: 'Mar 29', content: ''},
-            {id: 6, name: 'Weekend projects', date: 'Mar 2', content: 'TBD'}
-        ];
-        this.dataProvider = new oj.ArrayDataProvider(data,
-                {keys: data.map(function (value) {
+//        var data = [
+//            {
+//                id: 0,
+//                k1: "2018年1月12日 15:23",
+//                k2: "通知级",
+//                k3: "质保部",
+//                k4: "2天内提供质量整改方案",
+//                k5: "红旗H7-FL",
+//                k6: "车辆启动后显示“废气监测系统故障”",
+//                k7: "已完成",
+//                content : "test"
+//            }
+//        ];
+        self.dataProvider = new oj.ArrayDataProvider(self.desList,
+                {keys: self.desList().map(function (value) {
                         return value.id;
                     })});
         this.content = ko.observable("");
@@ -156,9 +171,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
         };
 
         self.gotoContent = function (event) {
-            if (event.detail.value != null)
+            if (event.detail.value !== null)
             {
-                var row = data[event.detail.value];
+                console.log(event);
+                var row = self.desList()[event.detail.value];
                 self.content(row.content);
                 self.slide();
             }
@@ -168,9 +184,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
         this.slide = function () {
             $("#drillList1").toggleClass("demo-page1-hide");
             $("#drillList2").toggleClass("demo-page2-hide");
-        } 
+        }
 
-    } 
+    }
 
     return new weekChartTwoContentViewModel;
 });
