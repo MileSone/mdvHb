@@ -33,8 +33,8 @@
     width:calc(100% - 30px);
     white-space: normal;
     margin-right: 30px;
-    -moz-calc(100% - 30px);
-    -webkit-calc(100% - 30px);
+    width: -moz-calc(100% - 30px);
+    width:-webkit-calc(100% - 30px);
 }
 
 /* 
@@ -327,7 +327,7 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 .oj-popup-week{
     border-radius:4px;
     min-height:60vh;
-    max-height:84vh;
+    max-height:90vh;
     width: 94%;
 }
 
@@ -356,7 +356,7 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 }
 
 #drillList1 .y2{
-    color: #f9a93e;
+
     font-size: 20px;
     font-weight: 600;
 }
@@ -366,6 +366,18 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
     font-size: 16px;
     padding-bottom: 8px;
     width: 98%;
+}
+
+.orange{
+    color: #f9a93e;
+}
+
+.red{
+    color:rgb(237, 102, 71);;
+}
+
+.green{
+    color: darkgreen;
 }
 
 #drillList1 .oj-listview {
@@ -378,14 +390,19 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
     background-position: 0rem 0; 
 }
 
-#drillList1 .y4{
+.y4 .oj-fwk-icon{
     position: absolute;
-    right: -4px;
+    right: 10px;
     top: 50%;
+    font-size: 25px;
+    color: #d5dfe5;
 }
 
+
+
+
 #drillList1 .y3 .y5{
-    color: darkgreen;
+
     font-weight: 600;
 }
 
@@ -401,3 +418,75 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 #drillList1 .oj-listview-item {
     border-top: none;
 }
+
+#drillList2 .demo-panel{
+    border-radius: 4px;
+    overflow-y: scroll;
+    max-height:calc(90vh - 120px);
+    max-height:-moz-calc(90vh - 120px);
+    max-height:-webkit-calc(90vh - 120px);
+    border:1px solid #a5b6c8;
+}
+
+#drillList2 ul, ol {
+    margin: 0px;
+    padding: 2px 1px 1px 0px;
+    background:#eef3f7;
+    border-style:groove;
+    border: none;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#drillList2 #buttonIcon2{
+    position: absolute;
+    top: 7px;
+    font-size: 17px;
+}
+
+#drillList2 ul li, ol {
+    background-color: white;
+    margin-top: 2px;
+    min-height: 50px;
+    padding: 5px 2px 0px 5px;
+    position: relative;
+}
+
+#fbBtn{
+    width: 283px;
+    background-color: #5192de;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+#fbBtn .oj-button-text{
+    color:white;
+}
+
+
+.oj-textarea{
+    border: 1px solid #8282f9;
+}
+
+
+#drillList2 ul li span:first-child{
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0, -50%);
+}
+
+#drillList2 ul li span:last-child{
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(0, -50%);
+}
+
+#drillList2 ul li:last-child{
+    height: 80px;
+}
+

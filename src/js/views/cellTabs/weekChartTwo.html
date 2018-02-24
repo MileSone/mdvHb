@@ -48,7 +48,7 @@ and open the template in the editor.
             <div class="demo-popup-body">
                 <div class="demo-popup-header">
                     <h5>质量问题整改表</h5>
-                    <oj-button style="position: absolute;right: 10px;top: 7px;" id="btnCancel" 
+                    <oj-button style="position: absolute;right: 10px;top: 7px;font-size: 20px;" id="btnCancel" 
                                data-bind="click: function()
                                   {
                                     var popup = document.querySelector('#popupWeek');
@@ -71,8 +71,21 @@ and open the template in the editor.
                                 <span slot="startIcon" class="oj-fwk-icon-caret-start oj-fwk-icon"></span>
                                 返回
                             </oj-button>
-                            <div class="oj-panel demo-panel">
-                                <span data-bind="text: content"></span>
+                            <div class="demo-panel">
+                                <ul style="list-style-type:none">
+                                    <li> <span>编号*</span><span data-bind="text: po1">L01203YT</span></li>
+                                    <li> <span>汽车型号</span><span data-bind="text: po2">红旗H7-FL</span></li>
+                                    <li> <span>责任单位</span><span data-bind="text: po3">质保部</span></li>
+                                    <li> <span>时间要求</span><span data-bind="text: po4">2天内提供质量整改方案</span></li>
+                                    <li> <span>问题描述</span><span data-bind="text: po5">车辆启动后显示“废气监测系统故障”</span></li>
+                                    <li> <span>完成情况</span><span data-bind="text: po6">已完成</span></li>
+                                    <li> <span>审批评价</span><span><oj-text-area id="text-area" value="{{sugValue}}"></oj-text-area></span></li>
+                                </ul>
+                                <div class="oj-flex no-border" style="text-align:center;margin: 30px 0px 30px 0px;">
+                                    <oj-button id='fbBtn' on-click='[[fbbuttonClick]]'>
+                                        提交
+                                    </oj-button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,7 +94,7 @@ and open the template in the editor.
                         <li data-bind="attr: {id: 'item'+id}">
                             <div class="">
                                 <div class="y1" data-bind="text: k1">2018年1月12日 15:23</div>
-                                <div class="y2" data-bind="text: k2">通知级</div>
+                                <div class="y2" data-bind="text: k2,css: $parent.k2chech(k2) ? 'red' : 'orange'">通知级</div>
                                 <div class="popDivider"></div>
                                 <div class="y3">
                                     <div>
@@ -97,7 +110,7 @@ and open the template in the editor.
                                         <span>问题描述：</span><span data-bind="text: k6">车辆启动后显示“废气监测系统故障”</span>
                                     </div>
                                     <div>
-                                        <span>完成状态：</span><span class="y5" data-bind="text: k7">已完成</span>
+                                        <span>完成状态：</span><span class="y5" data-bind="text: k7,css: $parent.k7chech(k7) ? 'red' : 'green'">已完成</span>
                                     </div>
                                 </div>
                                 <div class="oj-flex-bar-end oj-sm-align-items-center y4">

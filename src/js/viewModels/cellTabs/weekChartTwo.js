@@ -7,7 +7,7 @@
 /**
  * weekChartTwo module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader', 'ojs/ojsunburst', 'ojs/ojbutton', 'ojs/ojpopup', 'ojs/ojlistview', 'ojs/ojarraydataprovider'
+define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader', 'ojs/ojsunburst', 'ojs/ojbutton', 'ojs/ojpopup', 'ojs/ojlistview', 'ojs/ojarraydataprovider', 'ojs/ojinputtext', 'ojs/ojlabel'
 ], function (oj, ko, $) {
     /**
      * The view model for the main content view template
@@ -22,8 +22,23 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
         self.jsonData = {};
         self.nodeValues = ko.observableArray();
         self.desList = ko.observableArray([]);
+        self.sugValue = ko.observable("");
 
+        self.po1 = ko.observable();
+        self.po2 = ko.observable();
+        self.po3 = ko.observable();
+        self.po4 = ko.observable();
+        self.po5 = ko.observable();
+        self.po6 = ko.observable();
 
+        self.fbbuttonClick = function () {
+            if (self.sugValue() !== null || self.sugValue() !== "") {
+                setTimeout(function () {
+                    self.sugValue("");
+                    alert("提交成功");
+                }, 1000);
+            }
+        }
         self.refreshReport = function (weekStr, carType, dateStr) {
             var path = weekStr + "/" + carType + "/";
             self.dataurlarr.removeAll()
@@ -41,9 +56,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                         var reg_NE = createNode(data.N.NNAME, data.N.count, 2);
                         var reg_MW = createNode(data.W.WNAME, data.W.count, 1);
                         var div_NE = createNode(data.N.NDNAME, data.N.ND, 2);
-                        var div_MA = createNode(data.N.NUNAME, data.N.NU, 4);
                         var div_EN = createNode(data.W.WDNAME, data.W.WD, 1);
                         var div_WN = createNode(data.W.WUNAME, data.W.WU, 3);
+                        var div_MA = createNode(data.N.NUNAME, data.N.NU, 4);
                         addChildNodes(dataArray, [reg_NE, reg_MW]);
                         addChildNodes(reg_NE, [div_NE, div_MA]);
                         addChildNodes(reg_MW, [div_EN, div_WN]);
@@ -65,6 +80,21 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                         population};
         }
 
+        self.k2chech = function (str) {
+            if (str === "警告级") {
+                return "1";
+            } else {
+                return false;
+            }
+        };
+
+        self.k7chech = function (str) {
+            if (str === "未完成") {
+                return "1";
+            } else {
+                return false;
+            }
+        };
 
         self.listener = function (event) {
             var legend;
@@ -74,7 +104,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                 legend = event.detail.id + "份 点击查看详细表单信息";
                 self.sunDes(legend);
                 var cellArray = self.jsonData.cells;
-                var checkPot = true;
                 for (var i = 0; i < cellArray.length; i++) {
                     if (cellArray[i].name === event.detail.id) {
                         console.log(cellArray[i].list);
@@ -83,17 +112,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                             self.desList(cellArray[i].list);
                             console.log("in here");
                         }
-
-                        checkPot = false;
                     }
                 }
-
-//                self.dataProvider = new oj.ArrayDataProvider(self.desList, {idAttribute: 'id'});
-//                if (checkPot === true) {
-//                  
-//                }
-
-//                $( "#weeklistview" ).ojListView( "refresh" );
                 var popup = document.querySelector('#popupWeek');
                 popup.open();
             } else if (checkString == "总") {
@@ -102,7 +122,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                 legend = event.detail.id.substring(0, 2) + "共 " + event.detail.data.value + " 份 点击“完成”或“未完成”查看详细表单信息";
                 self.sunDes(legend);
             }
-        }
+        };
 
         self.startAnimationListener = function (data, event)
         {
@@ -124,16 +144,16 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
 
 
         function getColor(meanIncome) {
-            if (meanIncome == 0) {
+            if (meanIncome === 0) {
                 return handler.getValue('1stQuartile');
-            } else if (meanIncome == 1) {
+            } else if (meanIncome === 1) {
                 return handler.getValue('2ndQuartile');
-            } else if (meanIncome == 2) {
+            } else if (meanIncome === 2) {
                 return handler.getValue('3rdQuartile');
-            } else if (meanIncome == 3) {
-                return handler.getValue('4thQuartile');
-            } else {
+            } else if (meanIncome === 4) {
                 return handler.getValue('5thQuartile');
+            } else {
+                return handler.getValue('4thQuartile');
             }
         }
 
@@ -145,20 +165,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
             }
         }
 
-//        var data = [
-//            {
-//                id: 0,
-//                k1: "2018年1月12日 15:23",
-//                k2: "通知级",
-//                k3: "质保部",
-//                k4: "2天内提供质量整改方案",
-//                k5: "红旗H7-FL",
-//                k6: "车辆启动后显示“废气监测系统故障”",
-//                k7: "已完成",
-//                content : "test"
-//            }
-//        ];
-         self.dataProvider = new oj.ArrayDataProvider(self.desList, {idAttribute: 'id'});
+        self.dataProvider = new oj.ArrayDataProvider(self.desList, {idAttribute: 'id'});
         this.content = ko.observable("");
 
         self.gotoList = function (event, ui) {
@@ -171,7 +178,13 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
             {
                 console.log(event);
                 var row = self.desList()[event.detail.value];
-                self.content(row.content);
+                self.po1(row.content.id);
+                self.po2(row.content.car);
+                self.po3(row.content.department);
+                self.po4(row.content.due);
+                self.po5(row.content.des);
+                self.po6(row.content.doneState);
+
                 self.slide();
             }
         };
