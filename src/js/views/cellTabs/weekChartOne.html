@@ -25,16 +25,27 @@ and open the template in the editor.
             </oj-select-one>
         </div>
     </div>
-    <!-- ko foreach: dataurlarr -->
-    <my-drilling-pie data-url="{{dataurl}}" chart-name="{{chartname}}" inner-radius=".6" center-label="总计90件" />
-    <!-- /ko -->
-    <!-- ko foreach: dataurlarr2 -->
-    <my-line data-url="{{dataurl}}" chart-name="{{chartname}}" />
-    <!-- /ko -->
-    <!-- ko foreach: dataurlarr3 -->
-    <my-combo data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
-    <!-- /ko -->
-
+    <div id="sampleDemo" style="" class="demo-padding demo-container">
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+            <div id="panelPage">
+                <div class="oj-panel oj-sm-margin-2x">
+                    <!-- ko foreach: dataurlarr -->
+                    <my-drilling-pie data-url="{{dataurl}}" chart-name="{{chartname}}" inner-radius=".6" center-label="总计90件" />
+                    <!-- /ko -->
+                </div>
+                <div class="oj-panel oj-sm-margin-2x">
+                    <!-- ko foreach: dataurlarr2 -->
+                    <my-line data-url="{{dataurl}}" chart-name="{{chartname}}" />
+                    <!-- /ko -->
+                </div>
+                <div class="oj-panel oj-sm-margin-2x">
+                    <!-- ko foreach: dataurlarr3 -->
+                    <my-combo data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </div>
     <!--
     <oj-button on-click='[[drillingButtonAction]]'>从此下钻</oj-button>
     -->

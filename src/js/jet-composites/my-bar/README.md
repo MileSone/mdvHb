@@ -1,5 +1,1 @@
-# ojet component template
-
-## Usage
-Refer to the oj.Composite jsdoc
-http://www.oracle.com/webfolder/technetwork/jet/jsdocs/oj.Composite.html
+ref-value="[{'text': '参考值', 'type': 'line', 'value': 20, color: '#FAD55C', 'displayInLegend': 'on', 'lineWidth': 1, 'location': 'back', 'shortDesc': '参考值'}]" 

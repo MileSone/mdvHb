@@ -18,6 +18,8 @@ define(
         self.valToolValue = ko.observable();
         self.groupToolValue = ko.observable();
         self.orientationValue = ko.observable('vertical');
+        self.yref=ko.observableArray();
+
         context.props.then(function (propertyMap) {
             //Store a reference to the properties for any later use
             self.properties = propertyMap;
@@ -26,6 +28,9 @@ define(
 
             if (self.properties.chartName != undefined) {
                 self.chartName(self.properties.chartName)
+            }
+            if (self.properties.refValue != undefined) {
+                self.yref(eval(self.properties.refValue))
             }
             if (self.properties.dataUrl != undefined) {
                 self.dataUrl(self.properties.dataUrl);

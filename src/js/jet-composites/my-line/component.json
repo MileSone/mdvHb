@@ -9,6 +9,8 @@
       "type": "string"
     },"chartName": {
       "type": "string"
+    },"refValue": {
+      "type": "string"
     }
   },
   "methods": {
