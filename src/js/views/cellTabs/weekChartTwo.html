@@ -16,25 +16,31 @@ and open the template in the editor.
         </div>
     </div>
     <!--<my-sunburst chart-name="质量整改单" />-->
-    <div id='sunburst-container' style="padding: 10px;text-align:center;">
-        <oj-sunburst 
-            animation-on-display="auto"
-            node-defaults.label-display="rotated"
-            nodes="[[nodeValues]]"
-            selection-mode="single"
-            drilling ="on"
-            on-oj-drill='[[listener]]'
-            style="width:85%;margin: 0 auto;">
-        </oj-sunburst>
+    <div id="sampleDemo" style="" class="demo-padding demo-container">
+        <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+            <div id="panelPage">
+                <div class="oj-panel oj-sm-margin-2x">
+                    <div id='sunburst-container' style="padding: 10px;text-align:center;">
+                        <oj-sunburst animation-on-display="auto" node-defaults.label-display="rotated" nodes="[[nodeValues]]" selection-mode="single"
+                            drilling="on" on-oj-drill='[[listener]]' style="width:85%;margin: 0 auto;">
+                        </oj-sunburst>
 
-        <div class="sunDesWords" data-bind ="text: sunDes"></div>
+                        <div class="sunDesWords" data-bind="text: sunDes"></div>
+                    </div>
+                </div>
+                <div class="oj-panel oj-sm-margin-2x">
+                    <!-- ko foreach: dataurlarr -->
+                    <my-bar data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
+                    <!-- /ko -->
+                </div>
+                <div class="oj-panel oj-sm-margin-2x">
+                    <!-- ko foreach: dataurlarr2 -->
+                    <my-bar data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- ko foreach: dataurlarr -->
-    <my-bar data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
-    <!-- /ko -->
-    <!-- ko foreach: dataurlarr2 -->
-    <my-bar data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
-    <!-- /ko -->
 
 
 

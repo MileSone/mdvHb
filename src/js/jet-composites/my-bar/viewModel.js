@@ -22,14 +22,16 @@ define(
         self.serToolValue = ko.observable();
         self.valToolValue = ko.observable();
         self.groupToolValue = ko.observable();
-
+        self.yref=ko.observableArray();
         context.props.then(function (propertyMap) {
             //Store a reference to the properties for any later use
             self.properties = propertyMap;
             if (self.properties.chartName != undefined) {
                 self.chartName(self.properties.chartName)
             }
-
+            if (self.properties.refValue != undefined) {
+                self.yref(eval(self.properties.refValue))
+            }
             if (self.properties.stackValue != undefined) {
                 self.stackValue(self.properties.stackValue)
             }
