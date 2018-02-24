@@ -15,7 +15,7 @@
             </div>
             <div class="oj-flex-bar-end">
                 <oj-input-date id="minmax" class="calenIcon"  min="[[oj.IntlConverterUtils.dateToLocalIso(new Date(2018, 02, 01))]]" max="2018-03-20"
-                               value='{{dateValue}}'>
+                               value='{{dateValue}}' on-value-changed="[[dateDidChangeHandler]]">
                 </oj-input-date>
             </div>
         </header>
@@ -133,7 +133,6 @@
                             <div> 备注：</div>
                             <span data-bind="text: popDes">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</span>
                         </div>
-
                     </oj-form-layout>
                 </div>
                 <div class="demo-popup-footer">

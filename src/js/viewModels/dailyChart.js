@@ -21,7 +21,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
         self.selectValue = ko.observable("红旗H7-FL");
         var data = [{name: 'Settings', t1: '10.3.6', t2: 2, t3: 2}
         ];
-
+        self.initDay = ko.observable("dayOne");
         var boCheck = 1;
         self.dataTopJson = ko.observableArray([]);
         self.dataTopProvider = new oj.ArrayDataProvider(self.dataTopJson);
@@ -51,7 +51,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
                         }
                         setTimeout(function () {
                             boCheck = 0;
-                        },500);
+                        }, 500);
                     });
         }
 
@@ -73,7 +73,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
             return  "根据更新时间：" + self.dateValue();
         }, this);
 
-
         self.dayTitleOne = ko.pureComputed(function () {
             return  "量产车型现生产质量指标（当日生产38辆" + self.selectValue() + ")";
         }, this);
@@ -94,9 +93,26 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
         }, self);
 
         self.carDidChangeHandler = function (data) {
-            if (data.detail.previousValue !== data.detail.value) {
-                self.initVC("dayOne");
 
+            if (data.detail.previousValue !== data.detail.value) {
+                self.initVC(self.initDay());
+
+                //reload all charts to value week data
+            }
+        };
+
+
+
+        self.dateDidChangeHandler = function (data) {
+            if (data.detail.previousValue !== data.detail.value) {
+                if (data.detail.previousValue != data.detail.value) {
+                    if (self.initDay() !== 'dayOne') {
+                        self.initDay("dayOne");
+                    } else {
+                        self.initDay("dayTwo");
+                    }
+                }
+                self.initVC(self.initDay());
                 //reload all charts to value week data
             }
         };

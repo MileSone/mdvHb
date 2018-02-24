@@ -161,7 +161,6 @@ oj-input-password{
 /* day*/
 .dayCell{
     padding: 5px 0px 10px 0px;
-    border-bottom: 1px solid lightgray;
 }
 
 .dayCell .dayCell_title{
