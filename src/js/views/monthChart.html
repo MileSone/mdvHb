@@ -14,7 +14,7 @@
                 <h1 class="oj-hybrid-applayout-header-title" data-bind="text: pageTitle"></h1>
             </div>
             <div class="oj-flex-bar-end">
-                <oj-input-date class="calenIcon"  value='{{dateValue}}'>
+                <oj-input-date class="calenIcon"  value='{{dateValue}}'  on-value-changed="[[dateDidChangeHandler]]" date-picker=[[datePicker]] >
                 </oj-input-date>
             </div>
         </header>

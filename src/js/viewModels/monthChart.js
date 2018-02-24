@@ -17,7 +17,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
              */
             function monthChartContentViewModel() {
                 var self = this;
-
+                self.initMonth = ko.observable("month1");
                 self.selectValue = ko.observable("H7");
                 carType = self.selectValue();
                 self.carDidChangeHandler = function (data) {
@@ -28,8 +28,23 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
                         //reload all charts to value week data
                     }
                 };
-
-
+                self.dateDidChangeHandler = function (data) {
+                    if (data.detail.previousValue !== data.detail.value) {
+                        if(data.detail.previousValue.substring(0,7)!= data.detail.value.substring(0,7)){
+                            if(self.initMonth()=='month1'){
+                                self.initMonth('month2')
+                            }else{
+                                self.initMonth('month1')
+                            }
+                        }
+                        self.refreshAll();
+                        //reload all charts to value week data
+                    }
+                };
+                self.datePicker = {
+                    weekDisplay: 'number'
+                };
+    
                 self.pageTitle = ko.observable("质量月报");
                 self.dateValue = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date(2018, 01, 28)));
                 // Below are a subset of the ViewModel methods invoked by the ojModule binding
@@ -103,8 +118,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','viewModels/cellTabs
                 };
 
                 self.refreshAll=function(){
-                    monthChartOne.refreshReport('month1',self.selectValue(),self.dateValue())
-                    monthChartTwo.refreshReport('month1',self.selectValue(),self.dateValue())
+                    monthChartOne.refreshReport(self.initMonth(),self.selectValue(),self.dateValue())
+                    monthChartTwo.refreshReport(self.initMonth(),self.selectValue(),self.dateValue())
                 }
 
                 self.modulePath = ko.pureComputed(
