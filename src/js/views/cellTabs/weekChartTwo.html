@@ -28,12 +28,12 @@ and open the template in the editor.
                         <div class="sunDesWords" data-bind="text: sunDes"></div>
                     </div>
                 </div>
-                <div class="oj-panel oj-sm-margin-2x">
+                <div class="oj-panel oj-sm-margin-2x" data-bind="visible: isManager()">
                     <!-- ko foreach: dataurlarr -->
                     <my-bar data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
                     <!-- /ko -->
                 </div>
-                <div class="oj-panel oj-sm-margin-2x">
+                <div class="oj-panel oj-sm-margin-2x" data-bind="visible: isManager()">
                     <!-- ko foreach: dataurlarr2 -->
                     <my-bar data-url="{{dataurl}}" chart-name="{{chartname}}" stack-value="on" />
                     <!-- /ko -->
@@ -81,9 +81,9 @@ and open the template in the editor.
                                     <li> <span>时间要求</span><span data-bind="text: po4">2天内提供质量整改方案</span></li>
                                     <li> <span>问题描述</span><span data-bind="text: po5">车辆启动后显示“废气监测系统故障”</span></li>
                                     <li> <span>完成情况</span><span data-bind="text: po6">已完成</span></li>
-                                    <li> <span>审批评价</span><span><oj-text-area id="text-area" value="{{sugValue}}"></oj-text-area></span></li>
+                                    <li data-bind="visible: isManager()"> <span>审批评价</span><span><oj-text-area id="text-area" value="{{sugValue}}"></oj-text-area></span></li>
                                 </ul>
-                                <div class="oj-flex no-border" style="text-align:center;margin: 30px 0px 30px 0px;">
+                                <div class="oj-flex no-border" style="text-align:center;margin: 30px 0px 30px 0px;"  data-bind="visible: isManager()">
                                     <oj-button id='fbBtn' on-click='[[fbbuttonClick]]'>
                                         提交
                                     </oj-button>

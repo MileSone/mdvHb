@@ -15,13 +15,13 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
       self.password = ko.observable("123");
       self.isLoggedIn=ko.pureComputed(function () {
         return app.isLoggedIn()
-      })
+      });
       self.buttonClick = function (event) {
           console.log(self.username(),self.password());
           if(self.username()=== "manager" && self.password()=== "123"){
-               self.loginSuccess(1);
+               self.loginSuccess(true);
           }else if(self.username()=== "employee" && self.password()=== "123"){
-               self.loginSuccess(2);
+               self.loginSuccess(false);
           }else{
               alert("请输入正确的用户名或密码（有效用户名为 manager 和 employee）");
           }
@@ -30,9 +30,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
       }
       
       self.loginSuccess = function (data) {
+          
         app.isLoggedIn(true);
         oj.Router.rootInstance.go('dailyChart');
-
+        userName = self.username();
+        userCheck = data;
       };
 
       self.loginFailure = function (statusCode, data) {

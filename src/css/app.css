@@ -29,7 +29,8 @@
 }
 
 .globChartSty{
-    height:300px;
+    max-height: 600px;
+    min-height: 340px;
     width:calc(100% - 30px);
     white-space: normal;
     margin-right: 30px;

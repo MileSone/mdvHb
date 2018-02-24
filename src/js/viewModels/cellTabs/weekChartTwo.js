@@ -31,6 +31,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
         self.po5 = ko.observable();
         self.po6 = ko.observable();
 
+        self.isManager = ko.observable(true);
+
+
         self.fbbuttonClick = function () {
             if (self.sugValue() !== null || self.sugValue() !== "") {
                 setTimeout(function () {
@@ -196,7 +199,49 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
             $("#drillList1").toggleClass("demo-page1-hide");
             $("#drillList2").toggleClass("demo-page2-hide");
         }
+        self.handleActivated = function (info) {
+            // Implement if needed
+            self.isManager(userCheck);
+        };
 
+        /**
+         * Optional ViewModel method invoked after the View is inserted into the
+         * document DOM.  The application can put logic that requires the DOM being
+         * attached here.
+         * @param {Object} info - An object with the following key-value pairs:
+         * @param {Node} info.element - DOM element or where the binding is attached. This may be a 'virtual' element (comment node).
+         * @param {Function} info.valueAccessor - The binding's value accessor.
+         * @param {boolean} info.fromCache - A boolean indicating whether the module was retrieved from cache.
+         */
+        self.handleAttached = function (info) {
+            // Implement if needed
+             self.isManager(userCheck);
+        };
+
+
+        /**
+         * Optional ViewModel method invoked after the bindings are applied on this View. 
+         * If the current View is retrieved from cache, the bindings will not be re-applied
+         * and this callback will not be invoked.
+         * @param {Object} info - An object with the following key-value pairs:
+         * @param {Node} info.element - DOM element or where the binding is attached. This may be a 'virtual' element (comment node).
+         * @param {Function} info.valueAccessor - The binding's value accessor.
+         */
+        self.handleBindingsApplied = function (info) {
+            // Implement if needed
+        };
+
+        /*
+         * Optional ViewModel method invoked after the View is removed from the
+         * document DOM.
+         * @param {Object} info - An object with the following key-value pairs:
+         * @param {Node} info.element - DOM element or where the binding is attached. This may be a 'virtual' element (comment node).
+         * @param {Function} info.valueAccessor - The binding's value accessor.
+         * @param {Array} info.cachedNodes - An Array containing cached nodes for the View if the cache is enabled.
+         */
+        self.handleDetached = function (info) {
+            // Implement if needed
+        };
     }
 
     return new weekChartTwoContentViewModel;

@@ -7,3 +7,7 @@
 var weekTime;
 
 var monthTime;
+
+var userCheck;
+
+var userName;

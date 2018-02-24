@@ -5,18 +5,27 @@
 /*
  * Your profile ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'appController','ojs/ojbutton', 'ojs/ojrouter'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'ojs/ojrouter'],
         function (oj, ko, $, app) {
 
             function ProfileViewModel() {
                 var self = this;
-
+                self.LabelName = ko.observable("");
                 self.pageTitle = ko.observable("我的信息");
 
                 self.buttonClick = function (event) {
                     oj.Router.rootInstance.go('login');
                     return true;
                 }
+
+                self.userLabel = ko.computed(function () {
+                    if (undefined !== self.LabelName()) {
+                        return "用户：" + self.LabelName();
+                    } else {
+                        return "";
+                    }
+
+                });
 
                 // Below are a subset of the ViewModel methods invoked by the ojModule binding
                 // Please reference the ojModule jsDoc for additional available methods.
@@ -34,6 +43,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','ojs/ojbutton', 'ojs
                  */
                 self.handleActivated = function (info) {
                     // Implement if needed
+                    self.LabelName(userName);
                 };
 
                 /**
@@ -47,6 +57,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController','ojs/ojbutton', 'ojs
                  */
                 self.handleAttached = function (info) {
                     // Implement if needed
+                    self.LabelName(userName);
                 };
 
 
