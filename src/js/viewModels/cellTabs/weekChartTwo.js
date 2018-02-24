@@ -39,7 +39,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
 
                         var dataArray = createNode("总计", data.total, 0);
                         var reg_NE = createNode(data.N.NNAME, data.N.count, 2);
-                        var reg_MW = createNode(data.W.WNAME, data.N.count, 1);
+                        var reg_MW = createNode(data.W.WNAME, data.W.count, 1);
                         var div_NE = createNode(data.N.NDNAME, data.N.ND, 2);
                         var div_MA = createNode(data.N.NUNAME, data.N.NU, 4);
                         var div_EN = createNode(data.W.WDNAME, data.W.WD, 1);
@@ -67,10 +67,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
 
 
         self.listener = function (event) {
-
             var legend;
             var checkString = event.detail.id.substring(0, 1);
             if (checkString == "完" || checkString == "未") {
+
                 legend = event.detail.id + "份 点击查看详细表单信息";
                 self.sunDes(legend);
                 var cellArray = self.jsonData.cells;
@@ -78,7 +78,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                 for (var i = 0; i < cellArray.length; i++) {
                     if (cellArray[i].name === event.detail.id) {
                         console.log(cellArray[i].list);
-                        self.desList.removeAll();
+
                         if (cellArray[i].list.length !== 0) {
                             self.desList(cellArray[i].list);
                             console.log("in here");
@@ -87,6 +87,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
                         checkPot = false;
                     }
                 }
+
+//                self.dataProvider = new oj.ArrayDataProvider(self.desList, {idAttribute: 'id'});
 //                if (checkPot === true) {
 //                  
 //                }
@@ -133,10 +135,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
             } else {
                 return handler.getValue('5thQuartile');
             }
-
         }
-
-
 
 
         function addChildNodes(parent, childNodes) {
@@ -159,10 +158,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
 //                content : "test"
 //            }
 //        ];
-        self.dataProvider = new oj.ArrayDataProvider(self.desList,
-                {keys: self.desList().map(function (value) {
-                        return value.id;
-                    })});
+         self.dataProvider = new oj.ArrayDataProvider(self.desList, {idAttribute: 'id'});
         this.content = ko.observable("");
 
         self.gotoList = function (event, ui) {
