@@ -2,6 +2,6 @@
 
 ojet restore
 
-ojet serve android --browser
+ojet serve ios --browser
 
 to run

@@ -55,9 +55,9 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource', 
                     {name: '日报', id: 'dailyChart',
                         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
                     {name: '周报', id: 'weeklyChart',
-                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
                     {name: '月报', id: 'monthChart',
-                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
+                        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
                     {name: '我', id: 'profile',
                         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'}
                 ];

@@ -189,7 +189,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
 
         self.backToWeekPage = function ()
         {
-            self.gotoList();
+            if ($("#drillList1").hasClass("demo-page1-hide")) {
+                self.gotoList();
+            }
             var popup = document.querySelector('#popupWeek');
             popup.close();
         }
@@ -215,7 +217,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
          */
         self.handleAttached = function (info) {
             // Implement if needed
-             self.isManager(userCheck);
+            self.isManager(userCheck);
         };
 
 
