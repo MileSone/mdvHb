@@ -24,7 +24,18 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                     } else {
                         return "";
                     }
-
+                });
+                
+                self.userImage = ko.computed(function () {
+                    if (self.LabelName() === "employee") {
+                        return "demo-emp-icon";
+                    } else {
+                        return "demo-mgr-icon";
+                    }
+                });
+                
+                self.userEmail = ko.computed(function(){
+                   return  self.LabelName() + "@email.com" ;
                 });
 
                 // Below are a subset of the ViewModel methods invoked by the ojModule binding
