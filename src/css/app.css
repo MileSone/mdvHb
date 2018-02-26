@@ -9,7 +9,12 @@
 /* Hides the content area until we are ready to display after paddings have been adjusted. 
     oj-complete is a marker class that is applied by the appController 
     after adjusting the content area. */
-
+    .myheader {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        color:white;
+    }
 .showWindow{
     display: inline-flex;
 }
