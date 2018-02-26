@@ -420,7 +420,6 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 
 #drillList2 .demo-panel{
     border-radius: 4px;
-    overflow-y: scroll;
     max-height:calc(90vh - 120px);
     max-height:-moz-calc(90vh - 120px);
     max-height:-webkit-calc(90vh - 120px);
@@ -465,7 +464,7 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 
 
 .oj-textarea{
-    border: 1px solid #8282f9;
+    border: 1px solid #d4d4d6;
 }
 
 
@@ -483,6 +482,7 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
     top: 50%;
     left: 35%;
     transform: translate(0, -50%);
+    width: 60%;
 }
 
 #drillList2 ul li:last-child{
