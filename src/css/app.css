@@ -10,6 +10,13 @@
     oj-complete is a marker class that is applied by the appController 
     after adjusting the content area. */
 
+    .myheader {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        color:white;
+    }
+
 .oj-hybrid.oj-platform-ios.oj-platform-cordova.oj-hybrid-statusbar-spacer .oj-hybrid-applayout-header, .oj-hybrid.oj-platform-ios.oj-platform-cordova.oj-hybrid-statusbar-spacer .oj-hybrid-applayout-header-no-border {
     padding-top: 20px;
     min-height: 64px;
