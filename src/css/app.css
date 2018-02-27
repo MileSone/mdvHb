@@ -521,13 +521,11 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
     content:url("images/user2.png");
 }
 
-
 .profileBorder{
     padding: 12px;
     border: 1px dashed #ddd;
     box-shadow: 0 0 0 3px #fff, 0 0 0 5px #ddd, 0 0 0 10px #fff, 0 0 2px 10px #eee;
 }
-
 
 .profileBtn{
     width: 100%;
@@ -539,4 +537,10 @@ demo-chart-three-d-effect-control oj-buttonset-one , demo-chart-orientation-cont
 #profileID .oj-button-jqui.oj-default.oj-button-half-chrome,#profileID .oj-button-jqui.oj-focus-only.oj-button-half-chrome,#profileID .oj-button.oj-default.oj-button-half-chrome .oj-button-button,#profileID .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-button {
     text-shadow: none;
     color: #ffffff;
+}
+
+.oj-conveyorbelt-overflow-indicator .oj-conveyorbelt-overflow-icon {
+    cursor: inherit;
+    vertical-align: middle;
+    margin-bottom: 9px;
 }
