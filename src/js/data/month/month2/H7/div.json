@@ -2,28 +2,28 @@
 [
     {
         "title": "累计到店数量(STD)",
-        "count": "2962",
+        "count": "897",
         "unit": "台"
     },
     {
         "title": "终端销售(AAK)",
-        "count": "239",
+        "count": "379",
         "unit": "台"
     },
     {
         "title": "累计反馈问题",
-        "count": "242",
+        "count": "370",
         "unit": "频次"
     },
     {
         "title": "千台车故障率",
-        "count": "234.72‰",
+        "count": "184.23‰",
         "unit": ""
     },
     {
         "title": "终端用户反馈故障",
-        "count": "27",
+        "count": "98",
         "unit": "频次"
     }
-    
+
 ]

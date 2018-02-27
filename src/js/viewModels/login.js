@@ -18,9 +18,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojlabel',
       });
       self.buttonClick = function (event) {
           console.log(self.username(),self.password());
-          if(self.username()=== "manager" && self.password()=== "123"){
+          if(self.username().toUpperCase() === "MANAGER" && self.password()=== "123"){
                self.loginSuccess(true);
-          }else if(self.username()=== "employee" && self.password()=== "123"){
+          }else if(self.username().toUpperCase() === "EMPLOYEE" && self.password()=== "123"){
                self.loginSuccess(false);
           }else{
               alert("请输入正确的用户名或密码（有效用户名为 manager 和 employee）");
