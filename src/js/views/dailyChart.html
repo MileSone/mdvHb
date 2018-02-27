@@ -47,8 +47,8 @@
         </oj-list-view>
 
         <script type="text/html" id="daytop_template">
-            <li data-bind="attr: {id: $data['name']}">
-                <div class="dayCell" data-bind="click: $parent.showDrilling($data)">
+            <li data-bind="attr: {id: $data['name']},click: $parent.showDrilling($data) ">
+                <div class="dayCell">
                     <div class="oj-flex oj-flex-items-pad dayCell_title">
                         <div class="oj-sm-12 oj-md-12 oj-flex-item" data-bind="text: name">
                             整车审批（单位：级）

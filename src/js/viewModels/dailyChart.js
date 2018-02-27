@@ -58,6 +58,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojselectcombo
         self.initVC("dayOne");
 
         self.showDrilling = function (data) {
+            console.log("drilling",data);
             if (boCheck === 0) {
                 self.pop_t1(data.t1);
                 self.pop_t2(data.t2);
