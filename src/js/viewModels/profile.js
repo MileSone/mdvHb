@@ -14,6 +14,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                 self.pageTitle = ko.observable("我的信息");
 
                 self.buttonClick = function (event) {
+                    app.isLoggedIn(false);
                     oj.Router.rootInstance.go('login');
                     return true;
                 }
