@@ -103,7 +103,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
             var checkString = event.detail.id.substring(0, 1);
             if (checkString == "完" || checkString == "未") {
 
-                legend = event.detail.id + "份 点击查看详细表单信息";
+                legend = event.detail.id + "份 双击查看详细表单信息";
                 self.sunDes(legend);
                 var cellArray = self.jsonData.cells;
                 for (var i = 0; i < cellArray.length; i++) {
@@ -118,7 +118,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'jet-composites/my-sunburst/loader',
             } else if (checkString == "总") {
                 self.sunDes(mainlegend);
             } else {
-                legend = event.detail.id.substring(0, 2) + "共 " + event.detail.data.value + " 份 点击“完成”或“未完成”查看详细表单信息";
+                legend = event.detail.id.substring(0, 2) + "共 " + event.detail.data.value + " 份 双击“完成”或“未完成”查看详细表单信息";
                 self.sunDes(legend);
             }
         };

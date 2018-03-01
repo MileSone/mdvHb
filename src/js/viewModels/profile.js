@@ -28,7 +28,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojbutton', 'oj
                 });
                 
                 self.userImage = ko.computed(function () {
-                    if (self.LabelName() === "employee") {
+                    if (self.LabelName().toUpperCase() === "EMPLOYEE") {
                         return "demo-emp-icon";
                     } else {
                         return "demo-mgr-icon";
